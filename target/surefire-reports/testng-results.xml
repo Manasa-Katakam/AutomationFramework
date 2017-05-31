@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="37" started-at="2017-05-29T08:11:12Z" finished-at="2017-05-29T08:11:12Z">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="37" started-at="2017-05-29T08:11:12Z" finished-at="2017-05-29T08:11:12Z">
+      <class name="com.atm.modulefive.webdriver.basics.AppTest">
+        <test-method status="PASS" signature="testApp()" name="testApp" duration-ms="15" started-at="2017-05-29T13:41:12Z" finished-at="2017-05-29T13:41:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testApp -->
+      </class> <!-- com.atm.modulefive.webdriver.basics.AppTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

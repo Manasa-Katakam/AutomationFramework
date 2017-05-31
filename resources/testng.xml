@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1">
+	<test name="Parallel Calulator Tests" parallel="methods" thread-count="2" group-by-instances="true">		
+		<groups>
+			<run>
+				<include name="positive" />
+				<include name="negative" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.atm.modulefive.webdriver.basics.GmailActions" />
+		</classes>
+	</test>
+
+</suite>
