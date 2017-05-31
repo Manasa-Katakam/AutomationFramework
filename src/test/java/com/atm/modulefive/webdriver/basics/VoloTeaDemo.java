@@ -186,29 +186,15 @@ public class VoloTeaDemo {
 		driver.findElement(By.xpath(LINK_FINDFLIGHTS)).click();
 
 		// Verifying the Passenger Count as 2
-		String tripDetail = driver.findElement(By.xpath(LABEL_PASSENGER_COUNT)).getText();
-		if (tripDetail.contains("2")) {
-			System.out.println("Total number of travellers are 2 as expected");
-		} else {
-			System.out.println("Total number of travellers are" + LABEL_PASSENGER_COUNT + "which isn't expected");
-		}
+		Assert.assertTrue(getElementValue(By.xpath(LABEL_PASSENGER_COUNT)).contains("2"),
+				"Total number of travellers are 2 as expected");
 
 		// Verifying the Flight results are of the same dates selected
-		String originDetails = driver.findElement(By.xpath(LABEL_ORIGIN)).getText();
-		if (originDetails.contains(selectedStartDate)) {
-			System.out
-					.println("In search results page, the origin date is same as selected, i.e: " + selectedStartDate);
-		} else {
-			System.out.println("In search results page, the origin date is different from selected");
-		}
+		Assert.assertTrue(getElementValue(By.xpath(LABEL_ORIGIN)).contains(selectedStartDate),
+				"In search results page, the origin date is same as selected, i.e: " + selectedStartDate);
 
-		String returnDetails = driver.findElement(By.xpath(LABEL_RETURN)).getText();
-		if (returnDetails.contains(selectedReturnDate)) {
-			System.out
-					.println("In search results page, the return date is same as selected, i.e: " + selectedReturnDate);
-		} else {
-			System.out.println("In search results page, the return date is different from selected");
-		}
+		Assert.assertTrue(getElementValue(By.xpath(LABEL_RETURN)).contains(selectedReturnDate),
+				"In search results page, the return date is same as selected, i.e: " + selectedReturnDate);
 
 	}
 
@@ -260,6 +246,12 @@ public class VoloTeaDemo {
 
 	private boolean isElementPresent(By by) {
 		return !driver.findElements(by).isEmpty();
+	}
+
+	public String getElementValue(By by) {
+
+		return driver.findElement(by).getText();
+
 	}
 
 }

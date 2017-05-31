@@ -2,32 +2,32 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="23284" started-at="2017-05-31T11:08:10Z" finished-at="2017-05-31T11:08:33Z">
+  <suite name="Default suite" duration-ms="25303" started-at="2017-05-31T12:22:09Z" finished-at="2017-05-31T12:22:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="23284" started-at="2017-05-31T11:08:10Z" finished-at="2017-05-31T11:08:33Z">
+    <test name="Default test" duration-ms="25303" started-at="2017-05-31T12:22:09Z" finished-at="2017-05-31T12:22:34Z">
       <class name="com.atm.modulefive.webdriver.basics.VoloTeaDemo">
-        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="startBrowser" is-config="true" duration-ms="4931" started-at="2017-05-31T16:38:10Z" description="Start Browser" finished-at="2017-05-31T16:38:14Z">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="startBrowser" is-config="true" duration-ms="7958" started-at="2017-05-31T17:52:09Z" description="Start Browser" finished-at="2017-05-31T17:52:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method name="addImplicitWait" signature="addImplicitWait()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" is-config="true" status="PASS" duration-ms="1142" finished-at="2017-05-31T16:38:16Z" started-at="2017-05-31T16:38:14Z" depends-on-methods="com.atm.modulefive.webdriver.basics.VoloTeaDemo.startBrowser" description="Add implicit wait and maximize window">
+        <test-method name="addImplicitWait" signature="addImplicitWait()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" is-config="true" status="PASS" duration-ms="1134" finished-at="2017-05-31T17:52:18Z" started-at="2017-05-31T17:52:17Z" depends-on-methods="com.atm.modulefive.webdriver.basics.VoloTeaDemo.startBrowser" description="Add implicit wait and maximize window">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addImplicitWait -->
-        <test-method status="PASS" signature="VoloTeaSignIn()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="VoloTeaSignIn" duration-ms="1063" started-at="2017-05-31T16:38:16Z" description="SignIn to VoloTea Application" finished-at="2017-05-31T16:38:17Z">
+        <test-method status="PASS" signature="VoloTeaSignIn()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="VoloTeaSignIn" duration-ms="611" started-at="2017-05-31T17:52:18Z" description="SignIn to VoloTea Application" finished-at="2017-05-31T17:52:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VoloTeaSignIn -->
-        <test-method status="PASS" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="SearchFlights" duration-ms="15294" started-at="2017-05-31T16:38:17Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.basics.VoloTeaDemo.VoloTeaSignIn" finished-at="2017-05-31T16:38:32Z">
+        <test-method status="PASS" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="SearchFlights" duration-ms="14736" started-at="2017-05-31T17:52:19Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.basics.VoloTeaDemo.VoloTeaSignIn" finished-at="2017-05-31T17:52:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchFlights -->
-        <test-method status="PASS" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="FlightInformation" duration-ms="86" started-at="2017-05-31T16:38:32Z" description="Validate the Search query made previously" depends-on-methods="com.atm.modulefive.webdriver.basics.VoloTeaDemo.SearchFlights" finished-at="2017-05-31T16:38:32Z">
+        <test-method status="PASS" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="FlightInformation" duration-ms="117" started-at="2017-05-31T17:52:34Z" description="Validate the Search query made previously" depends-on-methods="com.atm.modulefive.webdriver.basics.VoloTeaDemo.SearchFlights" finished-at="2017-05-31T17:52:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FlightInformation -->
-        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="stopBrowser" is-config="true" duration-ms="762" started-at="2017-05-31T16:38:32Z" description="Stop Browser" finished-at="2017-05-31T16:38:33Z">
+        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.VoloTeaDemo@6a4f787b]" name="stopBrowser" is-config="true" duration-ms="740" started-at="2017-05-31T17:52:34Z" description="Stop Browser" finished-at="2017-05-31T17:52:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopBrowser -->
