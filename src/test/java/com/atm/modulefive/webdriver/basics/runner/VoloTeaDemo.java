@@ -65,7 +65,7 @@ public class VoloTeaDemo {
 
 	private static WebDriver driver;
 
-	@BeforeClass(description = "Start Browser")
+	@BeforeClass(description = "Start Browser") //[IK] I think we can unite two @BeforeClass methods into single one.
 	public void startBrowser() {
 		System.setProperty("webdriver.chrome.driver", "./libs/chromedriver.exe");
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
@@ -84,8 +84,8 @@ public class VoloTeaDemo {
 		doLogin(Constants.EMAIL, Constants.PASSWORD);
 		verifyTitle(Constants.PAGETITLE); // By Regular Expression
 		Assert.assertTrue(ActionUtility.isElementPresent(driver, By.id(LINK_YOUR_PROFILE)),
-				"Logged in succesfully to with the authenticated USER");
-		System.out.println("Logged in succesfully to with the authenticated USER");
+				"Logged in succesfully to with the authenticated USER"); //[IK] There should be the message, which will be seen in the logs, if the verification is failed.
+		System.out.println("Logged in succesfully to with the authenticated USER"); 
 	}
 
 	@Test(dependsOnMethods = "VoloTeaSignIn", description = "Search Flights from Prague to Venice")
@@ -95,7 +95,7 @@ public class VoloTeaDemo {
 		Constants.ReturnDate = addRandomReturnDate();
 		doFlightSearch();
 		Assert.assertTrue(ActionUtility.isElementPresent(driver, By.xpath(LABEL_PASSENGER_COUNT)),
-				"Search successful with the best amount selected");
+				"Search successful with the best amount selected"); //[IK] There should be the message, which will be seen in the logs, if the verification is failed.
 		System.out.println("Completed the Flight Search with specific Details");
 	}
 
@@ -104,7 +104,7 @@ public class VoloTeaDemo {
 		validateFlightDatesSelected(Constants.getStartdate(), Constants.getReturndate());
 		validateSearchResult();
 		Assert.assertTrue(ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_ORIGIN_FLIGHT)),
-				"Search successful with Flight details being visible");
+				"Search successful with Flight details being visible"); //[IK] There should be the message, which will be seen in the logs, if the verification is failed.
 		System.out.println(
 				"Flight Search with given details have been made and the list of available flights are visible");
 	}
@@ -114,6 +114,9 @@ public class VoloTeaDemo {
 		driver.quit();
 	}
 
+	// ==============================================================================================
+	// [IK] What is below should be moved to a separate class together with the related constants.
+	
 	private void doLogin(String email, String password) {
 		By SignIn = By.className(LINK_SIGNIN);
 		ActionUtility.waitForElementClickable(driver, 3, SignIn);
@@ -126,7 +129,7 @@ public class VoloTeaDemo {
 
 	private void verifyTitle(String pagetitle) {
 		String title = driver.getTitle();
-		if (title.matches("VOLO[A-Z]...*")) {
+		if (title.matches("VOLO[A-Z]...*")) { // [IK] Seems like we can remove this if-else, as the assertion will check the title.
 			System.out.println("Reg-Expression matched with the page title");
 		} else {
 			System.out.println("Reg-Expression not matched with the page title");
@@ -190,7 +193,7 @@ public class VoloTeaDemo {
 		// SELECT 1 from Children list box
 		ActionUtility.waitForElementVisible(driver, 6, By.xpath(CHILDREN));
 		Select childList = new Select(driver.findElement(By.xpath(CHILDREN)));
-		childList.selectByValue("number:1");
+		childList.selectByValue("number:1"); // [IK] Extract constant "number:1" here.
 		// Search for Flights
 		ActionUtility.waitForElementClickable(driver, 6, By.xpath(LINK_FINDFLIGHTS));
 		driver.findElement(By.xpath(LINK_FINDFLIGHTS)).click();
@@ -199,20 +202,20 @@ public class VoloTeaDemo {
 
 	private void validateFlightDatesSelected(String startDate, String endDate) {
 		// Verifying the Flight results are of the same dates selected
-		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_ORIGIN)).contains(startDate),
+		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_ORIGIN)).contains(startDate), // [IK] Put assertions to the @Test methods
 				"In search results page, the origin date is same as selected, i.e: " + startDate);
 
-		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_RETURN)).contains(endDate),
+		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_RETURN)).contains(endDate), // [IK] Put assertions to the @Test methods
 				"In search results page, the return date is same as selected, i.e: " + endDate);
 	}
 
 	private void validateSearchResult() {
 		// Verifying the Passenger Count as 2
-		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_PASSENGER_COUNT)).contains("2"),
-				"Total number of travellers are 2 as expected");
+		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_PASSENGER_COUNT)).contains("2"), // [IK] Put assertions to the @Test methods // [IK] Extract constant "2" here.
+				"Total number of travellers are 2 as expected"); 	//[IK] Put assertions to the @Test methods //[IK] There should be the message, which will be seen in the logs, if the verification is failed.
 
 		// Outbout Flight Details
-		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_ORIGIN_FLIGHT)) == true) {
+		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_ORIGIN_FLIGHT)) == true) { // [IK] Throw exception here instead of if-else.
 			String originFlight = driver.findElement(By.cssSelector(LABEL_ORIGIN_FLIGHT)).getText();
 			System.out.println("*****Outbound Flight Details*****");
 			System.out.println(originFlight);
@@ -220,7 +223,7 @@ public class VoloTeaDemo {
 			System.out.println("No default flight selection made for Outbound");
 		}
 		// Return Flight Details
-		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_RETURN_FLIGHT)) == true) {
+		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_RETURN_FLIGHT)) == true) { // [IK] Throw exception here instead of if-else.
 			String returnFlight = driver.findElement(By.cssSelector(LABEL_RETURN_FLIGHT)).getText();
 			System.out.println("*****Return Flight Details*****");
 			System.out.println(returnFlight);
