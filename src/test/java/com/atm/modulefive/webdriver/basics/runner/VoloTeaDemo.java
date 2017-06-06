@@ -91,7 +91,10 @@ public class VoloTeaDemo {
 	@Test(dependsOnMethods = "VoloTeaSignIn", description = "Search Flights from Prague to Venice")
 	public void SearchFlights() throws InterruptedException {
 		addOriginReturnLocation();
-		Constants.StartDate = addRandomStartDate();
+//		Constants.StartDate = addRandomStartDate(); // [IK] Original code is here
+		
+		Constants.getInstance().setStartdate(addRandomStartDate()); // [IK] Modified code - do like this with ReturnDate
+		
 		Constants.ReturnDate = addRandomReturnDate();
 		doFlightSearch();
 		Assert.assertTrue(ActionUtility.isElementPresent(driver, By.xpath(LABEL_PASSENGER_COUNT)),
@@ -101,8 +104,9 @@ public class VoloTeaDemo {
 
 	@Test(dependsOnMethods = "SearchFlights", description = "Validate the Search query made previously")
 	public void FlightInformation() {
-		validateFlightDatesSelected(Constants.getStartdate(), Constants.getReturndate());
-		validateSearchResult();
+//		validateFlightDatesSelected(Constants.getStartdate(), Constants.getReturndate()); // [IK] Original code
+	    validateFlightDatesSelected(Constants.getInstance().getStartdate(), Constants.getReturndate());	// [IK] Modified code. Do like this for getReturndate()	
+	    validateSearchResult();
 		Assert.assertTrue(ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_ORIGIN_FLIGHT)),
 				"Search successful with Flight details being visible"); //[IK] There should be the message, which will be seen in the logs, if the verification is failed.
 		System.out.println(
@@ -177,7 +181,7 @@ public class VoloTeaDemo {
 		return selectedStartDate;
 
 	}
-
+	
 	public static String addRandomReturnDate() {
 		// SELECT RANDOM RETURN DATE FROM THE AVAILABLE DATES
 		ActionUtility.waitForPageLoaded(driver);
