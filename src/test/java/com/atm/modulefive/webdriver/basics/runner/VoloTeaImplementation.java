@@ -24,7 +24,7 @@ public class VoloTeaImplementation {
 
 	private static final String BUTTON_SIGNIN = "//form[@id='loginForm']//a[contains(@class,'voloteaButton')]";
 
-	private static final String LINK_YOUR_PROFILE = "userNavbarOptions"; // name
+	private static final String LINK_YOUR_PROFILE = "userNavbarOptions"; // name [IK] This locator doesn't check if the user is logged in or not. Please, find another locator to check the logged in user.
 
 	private static final String FIELD_ORIGIN = "//input[@name='origin']"; // xpath
 
