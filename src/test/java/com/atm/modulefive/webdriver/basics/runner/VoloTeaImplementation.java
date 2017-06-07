@@ -68,7 +68,7 @@ public class VoloTeaImplementation {
 		} else {
 			System.out.println("Reg-Expression not matched with the page title");
 		}
-		assertEquals(title, pagetitle);
+		assertEquals(title, pagetitle); // [IK] Put each assertion to the single @Test method. One @Test should contain one assertion.
 	}
 
 	public static void addOriginReturnLocation(WebDriver driver) throws InterruptedException {
@@ -127,7 +127,7 @@ public class VoloTeaImplementation {
 		// SELECT 1 from Children list box
 		ActionUtility.waitForElementVisible(driver, 6, By.xpath(CHILDREN));
 		Select childList = new Select(driver.findElement(By.xpath(CHILDREN)));
-		childList.selectByValue(CHILDREN_COUNT); // [IK] Extract constant "number:1" here. [MK] Done
+		childList.selectByValue(CHILDREN_COUNT); 
 		// Search for Flights
 		ActionUtility.waitForElementClickable(driver, 6, By.xpath(LINK_FINDFLIGHTS));
 		driver.findElement(By.xpath(LINK_FINDFLIGHTS)).click();
@@ -137,7 +137,7 @@ public class VoloTeaImplementation {
 	public static void validateSearchResult(WebDriver driver) {
 
 		// Outbout Flight Details
-		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_ORIGIN_FLIGHT)) == true) { // [IK] Throw exception here instead of if-else. [MK] Done
+		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_ORIGIN_FLIGHT)) == true) { // [IK] Throw exception here, because even if the check fails, the test will go on. 
 			try{
 			String originFlight = driver.findElement(By.cssSelector(LABEL_ORIGIN_FLIGHT)).getText();
 			System.out.println("*****Outbound Flight Details*****");
@@ -147,7 +147,7 @@ public class VoloTeaImplementation {
 			}
 		}
 		// Return Flight Details
-		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_RETURN_FLIGHT)) == true) { // [IK] Throw exception here instead of if-else. [MK] Done
+		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_RETURN_FLIGHT)) == true) { // [IK] Throw exception here, because even if the check fails, the test will go on.
 			try{
 			String returnFlight = driver.findElement(By.cssSelector(LABEL_RETURN_FLIGHT)).getText();
 			System.out.println("*****Return Flight Details*****");

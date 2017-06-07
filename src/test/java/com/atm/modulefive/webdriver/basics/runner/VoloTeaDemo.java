@@ -31,7 +31,7 @@ public class VoloTeaDemo {
 
 	private static WebDriver driver;
 
-	@BeforeClass(description = "Start Browser, maximize and add implicit sync wait time") //[IK] I think we can unite two @BeforeClass methods into single one. [MK] Done
+	@BeforeClass(description = "Start Browser, maximize and add implicit sync wait time")
 	public void startBrowser() {
 		System.setProperty("webdriver.chrome.driver", "./libs/chromedriver.exe");
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
@@ -47,34 +47,33 @@ public class VoloTeaDemo {
 		System.out.println("Logged in succesfully to with the authenticated USER"); 
 		VoloTeaImplementation.verifyTitle(driver, Constants.getPagetitle()); // By Regular Expression
 		Assert.assertTrue(ActionUtility.isElementPresent(driver, By.id(LINK_YOUR_PROFILE)),
-				"User Authentiction Failed and Login Unsuccessful"); //[IK] There should be the message, which will be seen in the logs, if the verification is failed. [MK] Done
+				"User Authentiction Failed and Login Unsuccessful"); 
 		
 	}
 
 	@Test(dependsOnMethods = "VoloTeaSignIn", description = "Search Flights from Prague to Venice")
 	public void SearchFlights() throws InterruptedException {
 		VoloTeaImplementation.addOriginReturnLocation(driver);
-//		Constants.StartDate = addRandomStartDate(); // [IK] Original code is here
 		
-		Constants.getInstance().setStartdate(VoloTeaImplementation.addRandomStartDate(driver)); // [IK] Modified code - do like this with ReturnDate
-																	// [MK] Upodate the same for ReturnDate	
-		Constants.getInstance().setReturndate(VoloTeaImplementation.addRandomReturnDate(driver)); 		
+		Constants.getInstance().setStartdate(VoloTeaImplementation.addRandomStartDate(driver)); 
+		Constants.getInstance().setReturndate(VoloTeaImplementation.addRandomReturnDate(driver));
+		
 		VoloTeaImplementation.doFlightSearch(driver);
 		Assert.assertTrue(ActionUtility.isElementPresent(driver, By.xpath(LABEL_PASSENGER_COUNT)),
-				"The Passenger count hasn't been updated with the Sarch Criteria made"); //[IK] There should be the message, which will be seen in the logs, if the verification is failed. [MK] Done
+				"The Passenger count hasn't been updated with the Sarch Criteria made"); 
 		System.out.println("Completed the Flight Search with specific Details");
 	}
 
 	@Test(dependsOnMethods = "SearchFlights", description = "Validate the Search query made previously")
 	public void FlightInformation() {
 		// Verifying Flight Details
-		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_ORIGIN)).contains(Constants.getInstance().getStartdate()), // [IK] Put assertions to the @Test methods
+		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_ORIGIN)).contains(Constants.getInstance().getStartdate()), // [IK] Put each assertion to the single @Test method. One @Test should contain one assertion.
 				"In search results page, the origin date selected is : " + Constants.getInstance().getStartdate());																																			//[MK] Done
-		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_RETURN)).contains(Constants.getInstance().getReturndate()), // [IK] Put assertions to the @Test methods
+		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_RETURN)).contains(Constants.getInstance().getReturndate()), // [IK] Put each assertion to the single @Test method. One @Test should contain one assertion.
 				"In search results page, the return date selected is : " + Constants.getInstance().getReturndate());
 		// Verifying the Passenger Count as 2
-		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_PASSENGER_COUNT)).contains(PASSENGER_COUNT), // [IK] Put assertions to the @Test methods // [IK] Extract constant "2" here. [MK] Done 
-				"The Total number of Passengers doesn't match with the expected, i.e "+PASSENGER_COUNT); 	//[IK] Put assertions to the @Test methods //[IK] There should be the message, which will be seen in the logs, if the verification is failed.[MK] Done	
+		Assert.assertTrue(ActionUtility.getElementValue(driver, By.xpath(LABEL_PASSENGER_COUNT)).contains(PASSENGER_COUNT), // [IK] Put each assertion to the single @Test method. One @Test should contain one assertion. 
+				"The Total number of Passengers doesn't match with the expected, i.e "+PASSENGER_COUNT); 		
 		VoloTeaImplementation.validateSearchResult(driver);
 		System.out.println("Flight Search with given details have been made and the list of available flights are visible");
 	}
@@ -84,8 +83,4 @@ public class VoloTeaDemo {
 		driver.quit();
 	}
 
-	// ==============================================================================================
-	// [IK] What is below should be moved to a separate class together with the related constants.
-	// [MK] Transferred the same to VoloTeaPages class
-	
 }

@@ -7,7 +7,6 @@
         <methods>
           <include name="startBrowser"/>
           <include name="stopBrowser"/>
-          <include name="addImplicitWait"/>
           <include name="VoloTeaSignIn"/>
           <include name="FlightInformation"/>
           <include name="SearchFlights"/>

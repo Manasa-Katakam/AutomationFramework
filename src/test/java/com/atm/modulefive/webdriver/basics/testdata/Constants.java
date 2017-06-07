@@ -1,8 +1,8 @@
 package com.atm.modulefive.webdriver.basics.testdata;
 
 public class Constants {
-    
-    private static Constants constants = null; // [IK] New code added by me.
+
+    private static Constants constants = null; 
 
     public static final String START_URL = "http://www.volotea.com/en"; // [IK]
 									// make
@@ -17,50 +17,36 @@ public class Constants {
 													  // make
 													  // private
 
-    private String StartDate; // [IK] make private
+    private String StartDate; 
 
-    public static String ReturnDate; // [IK] make private
-    
+    private String ReturnDate; 
+
     /**
      * [IK] New code, added by me.
      * 
      */
     public static synchronized Constants getInstance() {
-	    if( constants == null ) {
-		constants = new Constants();
-	    }
-	    return constants;
-	  }
-
-    // public static String getStartdate() { // [IK] here is the original code.
-    // return StartDate;
-    // }
-
-    public static String getReturndate() {
-	return ReturnDate;
+	if (constants == null) {
+	    constants = new Constants();
+	}
+	return constants;
     }
 
-    /**
-     * 
-     * [IK] Here is the modified code.
-     * 
-     * Rewrite getReturndate() in the same way, using the commented example
-     * below
-     * 
-     * 
-     */
-
-    // Start of example ========================
-
-    public void setStartdate(String date) {
-	this.StartDate = date;
+    public void setStartdate(String startDate) {
+	this.StartDate = startDate;
     }
 
     public String getStartdate() {
 	return StartDate;
     }
 
-    // End of example ===========================
+    public void setReturndate(String returnDate) {
+	this.ReturnDate = returnDate;
+    }
+
+    public String getReturndate() {
+	return ReturnDate;
+    }
 
     public static String getStartUrl() {
 	return START_URL;
