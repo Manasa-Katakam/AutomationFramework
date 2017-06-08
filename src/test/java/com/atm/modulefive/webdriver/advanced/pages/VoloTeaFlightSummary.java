@@ -6,6 +6,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class VoloTeaFlightSummary extends VoloTeaAbstract{
 	
+	public VoloTeaFlightSummary(WebDriver driver) {
+		super(driver);
+	}
+
 	@FindBy(xpath = "//div[@class='resume-wrapper']//p")
 	private WebElement LABEL_PASSENGER_COUNT;
 	
@@ -15,9 +19,6 @@ public class VoloTeaFlightSummary extends VoloTeaAbstract{
 	@FindBy(xpath = "//td[contains(text(),'Return')]/..//strong/..")
 	private WebElement LABEL_RETURN;
 
-	public VoloTeaFlightSummary(WebDriver driver) {
-		super(driver);		
-	}
 
 	public String getPassengerCount() {
 		String passengerCount = LABEL_PASSENGER_COUNT.getText();

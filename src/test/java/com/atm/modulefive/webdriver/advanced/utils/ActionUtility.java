@@ -33,15 +33,20 @@ public class ActionUtility {
 			}
 		};
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(10000);
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(expectation);
 		} catch (Throwable error) {
 			Assert.fail("Timeout waiting for Page Load Request to complete.");
 		}
+		
 	}
 
-	
+	public static void waitForSync() throws InterruptedException {
+		Thread.sleep(3000);
+		
+	}
+
 	public static String getElementText(WebElement element) {
 		return element.getText();
 	}

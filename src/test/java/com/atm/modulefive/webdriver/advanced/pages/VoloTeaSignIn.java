@@ -7,7 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
 public class VoloTeaSignIn extends VoloTeaAbstract {
-	
+
+	public VoloTeaSignIn(WebDriver driver) {
+		super(driver);
+	}
+
 	@FindBy(css = "a.switcherLogin")
 	private WebElement LINK_SIGNIN;
 
@@ -19,16 +23,12 @@ public class VoloTeaSignIn extends VoloTeaAbstract {
 
 	@FindBy(xpath = "//form[@id='loginForm']//a[contains(@class,'voloteaButton')]")
 	private WebElement BUTTON_SIGNIN;
-	
-	public VoloTeaSignIn(WebDriver driver) {
-		super(driver);		
-	}
 
 	public VoloTeaUserProfile doLogin(String email, String password) throws InterruptedException {
-		ActionUtility.waitForPageLoaded(driver);
+		ActionUtility.waitForSync();
 		ActionUtility.waitForElementClickable(driver, 6, LINK_SIGNIN);
 		ActionUtility.jsClick(driver, LINK_SIGNIN);
-		ActionUtility.waitForPageLoaded(driver);
+		//LINK_SIGNIN.click();
 		System.out.println("Clicked on Sign-In Link On Home Page");
 		System.out.println("Typing user login: " + email);
 		INPUT_EMAIL.clear();
@@ -38,8 +38,7 @@ public class VoloTeaSignIn extends VoloTeaAbstract {
 		INPUT_PASSWORD.sendKeys(password);
 		BUTTON_SIGNIN.click();
 		System.out.println("Login is in progress...");
-		return new VoloTeaUserProfile(driver);		
+		return new VoloTeaUserProfile(driver);
 	}
-
 
 }

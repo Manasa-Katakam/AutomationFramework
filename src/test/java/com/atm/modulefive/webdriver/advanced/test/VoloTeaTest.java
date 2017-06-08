@@ -4,14 +4,13 @@ import java.util.concurrent.TimeUnit;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
+import com.atm.modulefive.webdriver.advanced.driver.DefaultDriver;
 import com.atm.modulefive.webdriver.advanced.pages.VoloTeaFlightSearch;
 import com.atm.modulefive.webdriver.advanced.pages.VoloTeaFlightSummary;
 import com.atm.modulefive.webdriver.advanced.pages.VoloTeaSignIn;
@@ -20,34 +19,25 @@ import com.atm.modulefive.webdriver.advanced.pages.VoloTeaUserProfile;
 public class VoloTeaTest {
 	
 	private static final String PASSENGER_COUNT = "2";
-	private static WebDriver driver;
+	private static final String BROWSER_TYPE = "firefox";
+	private WebDriver driver;	
 
 	@BeforeClass(description = "Start Browser, maximize and add implicit sync wait time")
 	public void startBrowser() {
-		System.setProperty("webdriver.chrome.driver", "./libs/chromedriver.exe");
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		driver = new ChromeDriver(capabilities);
+		driver=DefaultDriver.initializeDriver(BROWSER_TYPE);
 		driver.get(DataUtility.getStartUrl());
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
 	}
 
-	@Test(description = "SignIn to VoloTea Application")
-	public void LoginToVoloTea() throws InterruptedException {
-		new VoloTeaSignIn(driver).doLogin(DataUtility.getEmail(), DataUtility.getPassword());
-		Assert.assertTrue(new VoloTeaUserProfile(driver).loginIsCorrect(),
-				"User Authentication Failed, Not Logged in!");
-		System.out.println("Logged in succesfully to with the authenticated USER");
-	}
-
-	@Test(dependsOnMethods = "LoginToVoloTea", description = "Search Flights from Prague to Venice")
+	@Test(description = "Search Flights from Prague to Venice")
 	public void EnterOriginReturnDetails() throws InterruptedException {
 		new VoloTeaFlightSearch(driver).addOriginReturnDetails();
 		System.out.println("Entered the Origin and Return Locations with specific dates");
 	}
 
 	@Test(dependsOnMethods = "EnterOriginReturnDetails", description = "Search Flights with given details")
-	public void SearchFlights() {
+	public void SearchFlights() throws InterruptedException {
 		new VoloTeaFlightSearch(driver).doFlightSearch(DataUtility.getChildrenCount());
 		Assert.assertTrue(new VoloTeaFlightSummary(driver).getPassengerCount().contains(PASSENGER_COUNT),
 				"Flights Search query made with incorrect passebger count");
