@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
+import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
 
 public class VoloTeaFlightSearch extends VoloTeaAbstract {
 	
@@ -52,17 +53,21 @@ public class VoloTeaFlightSearch extends VoloTeaAbstract {
 		FIELD_DESTINATION.click();
 		LINK_DESTINATION.click();
 		ActionUtility.waitForElementClickable(driver, 6, CALENDAR);
+		System.out.println("Entering Origin Date as: "+DataUtility.getSelectedstartdate());
 		CAL_START_DATES.click();
 		ActionUtility.waitForPageLoaded(driver);
+		System.out.println("Entering Origin Date as: "+DataUtility.getSelectedreturndate());
 		CAL_RETURN_DATES.click();
 		return new VoloTeaFlightSummary(driver);				
 	}
 
 	public  VoloTeaFlightSummary doFlightSearch(String count) {
+		System.out.println("Selecting number of children as: "+DataUtility.getChildrenCount());
 		Select childList = new Select(CHILDREN);
 		childList.selectByValue(count);
 		ActionUtility.waitForElementClickable(driver, 6, LINK_FINDFLIGHTS);
 		LINK_FINDFLIGHTS.click();
+		System.out.println("Clicked on Find Flights.... Retriving the results for the search query made");
 		ActionUtility.waitForPageLoaded(driver);
 		return new VoloTeaFlightSummary(driver);
 		
