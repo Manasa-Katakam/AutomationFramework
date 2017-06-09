@@ -3,15 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo">
+      <class name="com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest">
         <methods>
+          <include name="LoginToVoloTea"/>
+          <include name="EnterOriginReturnDetails"/>
+          <include name="SearchFlights"/>
           <include name="startBrowser"/>
           <include name="stopBrowser"/>
-          <include name="VoloTeaSignIn"/>
           <include name="FlightInformation"/>
-          <include name="SearchFlights"/>
         </methods>
-      </class> <!-- com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo -->
+      </class> <!-- com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,5 +1,6 @@
 package com.atm.modulefive.webdriver.advanced.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,11 +37,22 @@ public class VoloTeaFlightSearch extends VoloTeaAbstract {
 	
 	@FindBy(xpath = "//form[@name='vm.searchSubmit']//a")
 	private WebElement LINK_FINDFLIGHTS;
-		
+	
+	
 
 	public VoloTeaFlightSearch(WebDriver driver) {
 		super(driver);		
 	}
+	
+	/**
+	 * [IK] An example how to find elements without using @FindBy. For the optional task, where @FindBy should not present.
+	 * 
+	 * 
+	 */
+	private final By someLocator = By.xpath("//*[some_xpath]");
+	WebElement catalog = driver.findElement(someLocator);
+	
+	// End of example. =======================================================================
 
 	public VoloTeaFlightSummary addOriginReturnDetails() {
 		ActionUtility.waitForPageLoaded(driver);
