@@ -13,6 +13,7 @@ public class VoloTeaFlightSearch extends VoloTeaAbstract{
 	public VoloTeaFlightSearch(WebDriver driver) {
 		super(driver);
 	}
+	
 
 	@FindBy(xpath = "//input[@name='origin']")
 	private WebElement FIELD_ORIGIN;
