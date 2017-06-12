@@ -1,1 +1,7 @@
-com\atm\modulefive\webdriver\basics\AppTest.class
+com\epam\automation\model\User.class
+com\epam\automation\pages\HomePage.class
+com\epam\automation\pages\StartPage.class
+com\epam\automation\model\DateFormats.class
+com\epam\automation\pages\SignInPage.class
+com\epam\automation\model\Constants.class
+com\epam\automation\tests\GithubSignin.class
