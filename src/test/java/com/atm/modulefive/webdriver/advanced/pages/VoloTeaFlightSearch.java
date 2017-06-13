@@ -1,15 +1,16 @@
 package com.atm.modulefive.webdriver.advanced.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
 
-public class VoloTeaFlightSearch extends VoloTeaAbstract {
+public class VoloTeaFlightSearch {
 	
 	@FindBy(xpath = "//input[@name='origin']")
 	private WebElement FIELD_ORIGIN;
@@ -32,27 +33,27 @@ public class VoloTeaFlightSearch extends VoloTeaAbstract {
 	@FindBy(xpath = "//div[contains(@class,'group-last')]//table//td[@data-handler='selectDay']/a[text()=14]")
 	private WebElement CAL_RETURN_DATES;
 
-	@FindBy(xpath = "//select[@name='children']")
-	private WebElement CHILDREN;
+//	@FindBy(xpath = "//select[@name='children']")
+//	private WebElement CHILDREN;
+	
+	/**
+	 * [MK] Example using @FindBys annotation
+	 */
+	
+	@FindBys({
+		@FindBy(tagName = "select"),@FindBy(name="children")
+	})private WebElement CHILDREN;
 	
 	@FindBy(xpath = "//form[@name='vm.searchSubmit']//a")
 	private WebElement LINK_FINDFLIGHTS;
-	
-	
+
+	private WebDriver driver;
+		
 
 	public VoloTeaFlightSearch(WebDriver driver) {
-		super(driver);		
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
-	
-	/**
-	 * [IK] An example how to find elements without using @FindBy. For the optional task, where @FindBy should not present.
-	 * 
-	 * 
-	 */
-	private final By someLocator = By.xpath("//*[some_xpath]");
-	WebElement catalog = driver.findElement(someLocator);
-	
-	// End of example. =======================================================================
 
 	public VoloTeaFlightSummary addOriginReturnDetails() {
 		ActionUtility.waitForPageLoaded(driver);
@@ -83,6 +84,10 @@ public class VoloTeaFlightSearch extends VoloTeaAbstract {
 		ActionUtility.waitForPageLoaded(driver);
 		return new VoloTeaFlightSummary(driver);
 		
+	}
+
+	public boolean flightSearchCorrect() {		
+		return LINK_FINDFLIGHTS.isDisplayed();
 	}
 
 }
