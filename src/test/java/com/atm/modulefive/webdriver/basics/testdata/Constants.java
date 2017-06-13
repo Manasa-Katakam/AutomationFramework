@@ -4,18 +4,18 @@ public class Constants {
 
     private static Constants constants = null; 
 
-    public static final String START_URL = "http://www.volotea.com/en"; // [IK]
+    private static final String START_URL = "http://www.volotea.com/en"; // [IK]
 									// make
-									// private
+									// private [MK] done
 
-    public static final String EMAIL = "lakmankat@gmail.com"; // [IK] make
-							      // private
+    private static final String EMAIL = "lakmankat@gmail.com"; // [IK] make
+							      // private [MK] done
 
-    public static final String PASSWORD = "travel2017"; // [IK] make private
+    private static final String PASSWORD = "travel2017"; // [IK] make private [MK] done 
 
-    public static final String PAGETITLE = "VOLOTEA - Cheap flights, offers and plane tickets to Europe"; // [IK]
+    private static final String PAGETITLE = "VOLOTEA - Cheap flights, offers and plane tickets to Europe"; // [IK]
 													  // make
-													  // private
+													  // private [MK] done
 
     private String StartDate; 
 

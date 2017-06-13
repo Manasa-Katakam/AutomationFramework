@@ -24,7 +24,30 @@ public class VoloTeaImplementation {
 
 	private static final String BUTTON_SIGNIN = "//form[@id='loginForm']//a[contains(@class,'voloteaButton')]";
 
-	private static final String LINK_YOUR_PROFILE = "userNavbarOptions"; // name [IK] This locator doesn't check if the user is logged in or not. Please, find another locator to check the logged in user.
+	private static final String LINK_YOUR_PROFILE = "userNavbarOptions"; // name
+																			// [IK]
+																			// This
+																			// locator
+																			// doesn't
+																			// check
+																			// if
+																			// the
+																			// user
+																			// is
+																			// logged
+																			// in
+																			// or
+																			// not.
+																			// Please,
+																			// find
+																			// another
+																			// locator
+																			// to
+																			// check
+																			// the
+																			// logged
+																			// in
+																			// user.
 
 	private static final String FIELD_ORIGIN = "//input[@name='origin']"; // xpath
 
@@ -47,10 +70,10 @@ public class VoloTeaImplementation {
 	private static final String LABEL_ORIGIN_FLIGHT = "div.departure"; // css-selector
 
 	private static final String LABEL_RETURN_FLIGHT = "div.return";
-	
+
 	private static final String CHILDREN_COUNT = "number:1";
-	
-	public static void doLogin(WebDriver driver,String email, String password) {
+
+	public static void doLogin(WebDriver driver, String email, String password) {
 		ActionUtility.waitForPageLoaded(driver);
 		By SignIn = By.className(LINK_SIGNIN);
 		ActionUtility.waitForElementClickable(driver, 3, SignIn);
@@ -61,15 +84,23 @@ public class VoloTeaImplementation {
 		ActionUtility.waitForElementVisible(driver, 3, By.id(LINK_YOUR_PROFILE));
 	}
 
-	public static void verifyTitle(WebDriver driver,String pagetitle) {
-		String title = driver.getTitle();
-		if (title.matches("VOLO[A-Z]...*")) { // [IK] Seems like we can remove this if-else, as the assertion will check the title.
-			System.out.println("Reg-Expression matched with the page title");
-		} else {
-			System.out.println("Reg-Expression not matched with the page title");
-		}
-		assertEquals(title, pagetitle); // [IK] Put each assertion to the single @Test method. One @Test should contain one assertion.
-	}
+	/**
+	 * [MK] Added the same assertion in @Test to verify title
+	 * 
+	 * @param driver
+	 * @throws InterruptedException
+	 */
+	// public static void verifyTitle(WebDriver driver,String pagetitle) {
+	// String title = driver.getTitle();
+	// if (title.matches("VOLO[A-Z]...*")) { // [IK] Seems like we can remove
+	// this if-else, as the assertion will check the title.
+	// System.out.println("Reg-Expression matched with the page title");
+	// } else {
+	// System.out.println("Reg-Expression not matched with the page title");
+	// }
+	// assertEquals(title, pagetitle); // [IK] Put each assertion to the single
+	// @Test method. One @Test should contain one assertion.
+	// }
 
 	public static void addOriginReturnLocation(WebDriver driver) throws InterruptedException {
 		ActionUtility.waitForPageLoaded(driver);
@@ -111,7 +142,7 @@ public class VoloTeaImplementation {
 		return selectedStartDate;
 
 	}
-	
+
 	public static String addRandomReturnDate(WebDriver driver) {
 		// SELECT RANDOM RETURN DATE FROM THE AVAILABLE DATES
 		ActionUtility.waitForPageLoaded(driver);
@@ -127,36 +158,23 @@ public class VoloTeaImplementation {
 		// SELECT 1 from Children list box
 		ActionUtility.waitForElementVisible(driver, 6, By.xpath(CHILDREN));
 		Select childList = new Select(driver.findElement(By.xpath(CHILDREN)));
-		childList.selectByValue(CHILDREN_COUNT); 
+		childList.selectByValue(CHILDREN_COUNT);
 		// Search for Flights
 		ActionUtility.waitForElementClickable(driver, 6, By.xpath(LINK_FINDFLIGHTS));
 		driver.findElement(By.xpath(LINK_FINDFLIGHTS)).click();
 
 	}
 
-	public static void validateSearchResult(WebDriver driver) {
+	public static void validateSearchResult(WebDriver driver) throws ElementNotFoundException {
 
-		// Outbout Flight Details
-		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_ORIGIN_FLIGHT)) == true) { // [IK] Throw exception here, because even if the check fails, the test will go on. 
-			try{
-			String originFlight = driver.findElement(By.cssSelector(LABEL_ORIGIN_FLIGHT)).getText();
-			System.out.println("*****Outbound Flight Details*****");
-			System.out.println(originFlight);
-			}catch(ElementNotFoundException e){
-				System.out.println("No default flight selection made from Origin");
-			}
-		}
-		// Return Flight Details
-		if (ActionUtility.isElementPresent(driver, By.cssSelector(LABEL_RETURN_FLIGHT)) == true) { // [IK] Throw exception here, because even if the check fails, the test will go on.
-			try{
-			String returnFlight = driver.findElement(By.cssSelector(LABEL_RETURN_FLIGHT)).getText();
-			System.out.println("*****Return Flight Details*****");
-			System.out.println(returnFlight);
-		} catch(ElementNotFoundException e) {
-			System.out.println("No default flight selection made ftom Outbound");
-		}
-		}
-
+		// [IK] Throw exception here, because even if the check fails, the test
+		// will go on.
+		// [MK] Implemented as suggested
+		String originFlight = driver.findElement(By.cssSelector(LABEL_ORIGIN_FLIGHT)).getText();
+		System.out.println("*****Outbound Flight Details*****");
+		System.out.println(originFlight);
+		String returnFlight = driver.findElement(By.cssSelector(LABEL_RETURN_FLIGHT)).getText();
+		System.out.println("*****Return Flight Details*****");
+		System.out.println(returnFlight);
 	}
 }
-
