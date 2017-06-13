@@ -12,9 +12,11 @@ public class HomePage {
 	@FindBy(xpath = "//button[@aria-label='Switch account context']/span")
 	private WebElement linkLoggedInUser;
 
-//	private final WebDriver driver; // [IK] Use already initialized WebDriver.
+	//	private final WebDriver driver; // [IK] Use already initialized WebDriver.
 	
 	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
+	
+	// [MK] commented the unnecessay re-initialised code
 
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
@@ -25,15 +27,15 @@ public class HomePage {
 		return linkLoggedInUser.getText();
 	}
 
-	/*
+	/**
 	 * [IK] Better use boolean here. 
-	 * 
+	 * [MK] Implemented the same with boolean
 	 */
-	public Integer hasUserLoggedIn() {
+	public boolean hasUserLoggedIn() {
 		if (linkLoggedInUser.getText() != "") { 
-			return 1;
+			return true;
 		} else {
-			return -1;
+			return false;
 		}
 	}
 

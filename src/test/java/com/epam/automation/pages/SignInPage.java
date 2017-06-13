@@ -1,6 +1,8 @@
 package com.epam.automation.pages;
 
+import com.epam.automation.model.CustomException;
 import com.epam.automation.pages.HomePage;
+import com.epam.automation.tests.WebDriverInitialize;
 
 import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,16 +24,17 @@ public class SignInPage {
 	@FindBy(xpath = "//input[@value='Sign in']")
 	private WebElement buttonSignIn;
 
-	private final WebDriver driver; // [IK] Use already initialized WebDriver.
+	// private final WebDriver driver; // [IK] Use already initialized WebDriver.
 	
-//	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
+	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
+	// [MK] commented the unnecessay re-initialised code
 
 	public SignInPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage signInGitHub(String username, String password) {
+	public HomePage signInGitHub(String username, String password) throws CustomException {
 		try {
 			textboxUsername.sendKeys(username);
 			textboxPassword.sendKeys(password);

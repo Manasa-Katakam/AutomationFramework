@@ -6,15 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.epam.automation.model.Constants;
+import com.epam.automation.tests.WebDriverInitialize;
 
 public class StartPage {
 
 	@FindBy(xpath = "//a[text()='Sign in']")
 	private WebElement signInButton;
 	
-	private final WebDriver driver; // [IK] Use already initialized WebDriver.
+	// private final WebDriver driver; // [IK] Use already initialized WebDriver.
 	
-//	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
+	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
+	// [MK] commented the unnecessay re-initialised code
 
 	public StartPage(WebDriver driver) {
 		this.driver = driver;
@@ -22,7 +24,7 @@ public class StartPage {
 	}
 
 	public void openGitHubURL() {
-		driver.get(Constants.GITHUB_BASE_URL);
+		driver.get(Constants.getGithubBaseUrl());
 	}
 
 	public SignInPage invokeSignIn() {
