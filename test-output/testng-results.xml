@@ -1,159 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="3" failed="1" ignored="0" total="4" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14404" started-at="2017-06-09T11:22:04Z" finished-at="2017-06-09T11:22:18Z">
+  <suite name="Default suite" duration-ms="41658" started-at="2017-06-13T07:27:22Z" finished-at="2017-06-13T07:28:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14404" started-at="2017-06-09T11:22:04Z" finished-at="2017-06-09T11:22:18Z">
-      <class name="com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest">
-        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19]" name="startBrowser" is-config="true" duration-ms="10283" started-at="2017-06-09T14:22:04Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-09T14:22:14Z">
+    <test name="Default test" duration-ms="41658" started-at="2017-06-13T07:27:22Z" finished-at="2017-06-13T07:28:04Z">
+      <class name="com.atm.modulefive.webdriver.advanced.test.VoloTeaTest">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.test.VoloTeaTest@29774679]" name="startBrowser" is-config="true" duration-ms="9281" started-at="2017-06-13T12:57:22Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-13T12:57:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method status="FAIL" signature="LoginToVoloTea()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19]" name="LoginToVoloTea" duration-ms="3067" started-at="2017-06-09T14:22:14Z" description="SignIn to VoloTea Application" finished-at="2017-06-09T14:22:17Z">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:305)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:687)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:680)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
-	at com.atm.modulefive.webdriver.advanced.utils.ActionUtility.waitForElementClickable(ActionUtility.java:19)
-	at com.atm.modulefive.webdriver.advanced.pages.VoloTeaSignIn.doLogin(VoloTeaSignIn.java:29)
-	at com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest.LoginToVoloTea(VoloTeaTest.java:36)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+        <test-method status="PASS" signature="LoginToVoloTea()[pri:0, instance:com.atm.modulefive.webdriver.advanced.test.VoloTeaTest@29774679]" name="LoginToVoloTea" duration-ms="11022" started-at="2017-06-13T12:57:31Z" description="SignIn to VoloTea Application" finished-at="2017-06-13T12:57:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginToVoloTea -->
-        <test-method status="SKIP" signature="EnterOriginReturnDetails()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19]" name="EnterOriginReturnDetails" duration-ms="0" started-at="2017-06-09T14:22:17Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest.LoginToVoloTea" finished-at="2017-06-09T14:22:17Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method VoloTeaTest.EnterOriginReturnDetails()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method VoloTeaTest.EnterOriginReturnDetails()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
+        <test-method status="PASS" signature="EnterOriginReturnDetails()[pri:0, instance:com.atm.modulefive.webdriver.advanced.test.VoloTeaTest@29774679]" name="EnterOriginReturnDetails" duration-ms="13671" started-at="2017-06-13T12:57:43Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.advanced.test.VoloTeaTest.LoginToVoloTea" finished-at="2017-06-13T12:57:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnterOriginReturnDetails -->
-        <test-method status="SKIP" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19]" name="SearchFlights" duration-ms="0" started-at="2017-06-09T14:22:17Z" description="Search Flights with given details" depends-on-methods="com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest.EnterOriginReturnDetails" finished-at="2017-06-09T14:22:17Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method VoloTeaTest.SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method VoloTeaTest.SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
+        <test-method status="PASS" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.advanced.test.VoloTeaTest@29774679]" name="SearchFlights" duration-ms="6830" started-at="2017-06-13T12:57:56Z" description="Search Flights with given details" depends-on-methods="com.atm.modulefive.webdriver.advanced.test.VoloTeaTest.EnterOriginReturnDetails" finished-at="2017-06-13T12:58:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchFlights -->
-        <test-method status="SKIP" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19]" name="FlightInformation" duration-ms="0" started-at="2017-06-09T14:22:17Z" description="Validate the Search query made previously" depends-on-methods="com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest.SearchFlights" finished-at="2017-06-09T14:22:17Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method VoloTeaTest.FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method VoloTeaTest.FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19] depends on not successfully finished methods
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:132)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:230)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
+        <test-method status="PASS" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.test.VoloTeaTest@29774679]" name="FlightInformation" duration-ms="88" started-at="2017-06-13T12:58:03Z" description="Validate the Search query made previously" depends-on-methods="com.atm.modulefive.webdriver.advanced.test.VoloTeaTest.SearchFlights" finished-at="2017-06-13T12:58:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FlightInformation -->
-        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest@3532ec19]" name="stopBrowser" is-config="true" duration-ms="1012" started-at="2017-06-09T14:22:17Z" description="Stop Browser" finished-at="2017-06-09T14:22:18Z">
+        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.test.VoloTeaTest@29774679]" name="stopBrowser" is-config="true" duration-ms="748" started-at="2017-06-13T12:58:03Z" description="Stop Browser" finished-at="2017-06-13T12:58:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopBrowser -->
-      </class> <!-- com.atm.modulefive.webdriver.advanced.mandatory.VoloTeaTest -->
+      </class> <!-- com.atm.modulefive.webdriver.advanced.test.VoloTeaTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

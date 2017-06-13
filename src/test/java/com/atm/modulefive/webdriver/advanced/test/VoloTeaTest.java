@@ -34,36 +34,45 @@ public class VoloTeaTest {
 
 	@Test(description = "SignIn to VoloTea Application")
 	public void LoginToVoloTea() throws InterruptedException {
+		System.out.println("USER login initiated..."); 
 		new VoloTeaSignIn(driver).doLogin(DataUtility.getEmail(), DataUtility.getPassword());
 		Assert.assertTrue(new VoloTeaUserProfile(driver).loginIsCorrect(),
 				"User Authentication Failed, Not Logged in!");
-		System.out.println("Logged in succesfully to with the authenticated USER"); // [IK] Don't put the code after assertions, because if the assertion fails, this code will not be executed.
+		// [IK] Don't put the code after assertions, because if the assertion fails, this code will not be executed.
+		// [MK] Updated the same with a new logger as needed at that step
 	}
 
 	@Test(dependsOnMethods = "LoginToVoloTea", description = "Search Flights from Prague to Venice")
 	public void EnterOriginReturnDetails() throws InterruptedException {
 		new VoloTeaFlightSearch(driver).addOriginReturnDetails();
 		System.out.println("Entered the Origin and Return Locations with specific dates");
-//		[IK] Each @Test should contain assertion. There's no assertion here.
+		Assert.assertTrue(new VoloTeaFlightSearch(driver).flightSearchCorrect(),
+				"Flight details are incorrect to proceed");
+		// [IK] Each @Test should contain assertion. There's no assertion here.
+		// [MK] Added a new assertion to validate the next step related element is displayed
 	}
 
 	@Test(dependsOnMethods = "EnterOriginReturnDetails", description = "Search Flights with given details")
 	public void SearchFlights() {
+		System.out.println("Initiate the Flight Search with specific Details suppied...");
 		new VoloTeaFlightSearch(driver).doFlightSearch(DataUtility.getChildrenCount());
 		Assert.assertTrue(new VoloTeaFlightSummary(driver).getPassengerCount().contains(PASSENGER_COUNT),
-				"Flights Search query made with incorrect passebger count");
-		System.out.println("Completed the Flight Search with specific Details"); // [IK] Don't put the code after assertions, because if the assertion fails, this code will not be executed. 
+				"Flights Search query made with incorrect passebger count"); 
+		// [IK] Don't put the code after assertions, because if the assertion fails, this code will not be executed.
+		// [MK] Updated the same with a new logger as needed at that step
 	}
 
 	@Test(dependsOnMethods = "SearchFlights", description = "Validate the Search query made previously")
 	public void FlightInformation() {
-		Assert.assertTrue(new VoloTeaFlightSummary(driver).isFlightDisplayed(),
-				"Flight Details are not displayed for the Search made!");
-		System.out.println("*****Outbound and Return Flight Details*****"); // [IK] Don't put the code after assertions, because if the assertion fails, this code will not be executed.
+		// [IK] Don't put the code after assertions, because if the assertion fails, this code will not be executed.
+		// [MK] Updated the same with a new logger as needed at that step
+		System.out.println("*****Outbound and Return Flight Details*****"); 
 		System.out.println(new VoloTeaFlightSummary(driver).getOriginFlightDetails());
 		System.out.println(new VoloTeaFlightSummary(driver).getReturnFlightDetails());
 		System.out.println(
 				"Flight Search with given details have been made and the list of available flights are visible");
+		Assert.assertTrue(new VoloTeaFlightSummary(driver).isFlightDisplayed(),
+				"Flight Details are not displayed for the Search made!");		
 	}
 
 	@AfterClass(description = "Stop Browser")

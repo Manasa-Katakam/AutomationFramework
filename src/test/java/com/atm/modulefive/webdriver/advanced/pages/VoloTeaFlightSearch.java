@@ -3,86 +3,73 @@ package com.atm.modulefive.webdriver.advanced.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
 
 public class VoloTeaFlightSearch extends VoloTeaAbstract {
-	
-	@FindBy(xpath = "//input[@name='origin']")
-	private WebElement FIELD_ORIGIN;
-
-	@FindBy(xpath = "//input[@name='destination']")
-	private WebElement FIELD_DESTINATION;
-	
-	@FindBy(xpath = "//a[contains(text(),'PRG')]")
-	private WebElement LINK_ORIGIN;
-
-	@FindBy(xpath = "//a[contains(text(),'VCE')]")
-	private WebElement LINK_DESTINATION;
-
-	@FindBy(xpath = "//div[contains(@class,'group-last')]")
-	private WebElement CALENDAR;
-	
-	@FindBy(xpath = "//div[contains(@class,'group-first')]//table//td[@data-handler='selectDay']/a[text()=30]")
-	private WebElement CAL_START_DATES;
-
-	@FindBy(xpath = "//div[contains(@class,'group-last')]//table//td[@data-handler='selectDay']/a[text()=14]")
-	private WebElement CAL_RETURN_DATES;
-
-	@FindBy(xpath = "//select[@name='children']")
-	private WebElement CHILDREN;
-	
-	@FindBy(xpath = "//form[@name='vm.searchSubmit']//a")
-	private WebElement LINK_FINDFLIGHTS;
-	
-	
 
 	public VoloTeaFlightSearch(WebDriver driver) {
-		super(driver);		
+		super(driver);
 	}
-	
-	/**
-	 * [IK] An example how to find elements without using @FindBy. For the optional task, where @FindBy should not present.
-	 * 
-	 * 
-	 */
-	private final By someLocator = By.xpath("//*[some_xpath]");
-	WebElement catalog = driver.findElement(someLocator);
-	
-	// End of example. =======================================================================
+
+	private final By origin = By.xpath("//input[@name='origin']");
+	private final By retrn = By.xpath("//input[@name='destination']");
+	private final By originLocation = By.xpath("//a[contains(text(),'PRG')]");
+	private final By returnLocation = By.xpath("//a[contains(text(),'VCE')]");
+	private final By calen = By.xpath("//div[contains(@class,'group-last')]");
+	private final By originDate = By
+			.xpath("//div[contains(@class,'group-first')]//table//td[@data-handler='selectDay']/a[text()=30]");
+	private final By returnDate = By
+			.xpath("//div[contains(@class,'group-last')]//table//td[@data-handler='selectDay']/a[text()=14]");
+	private final By child = By.xpath("//select[@name='children']");
+	private final By fingFlight = By.xpath("//form[@name='vm.searchSubmit']//a");
 
 	public VoloTeaFlightSummary addOriginReturnDetails() {
+		WebElement FIELD_ORIGIN = driver.findElement(origin);
+		ActionUtility.waitForElementClickable(driver, 10, FIELD_ORIGIN);
 		ActionUtility.waitForPageLoaded(driver);
-		ActionUtility.waitForElementClickable(driver, 6, FIELD_ORIGIN);
 		System.out.println("Entering Origin Location as PRG");
 		FIELD_ORIGIN.click();
+		WebElement LINK_ORIGIN = driver.findElement(originLocation);
 		LINK_ORIGIN.click();
 		ActionUtility.waitForPageLoaded(driver);
 		System.out.println("Entering Origin Location as VCE");
+		WebElement FIELD_DESTINATION = driver.findElement(retrn);
 		FIELD_DESTINATION.click();
+		WebElement LINK_DESTINATION = driver.findElement(returnLocation);
 		LINK_DESTINATION.click();
+		WebElement CALENDAR = driver.findElement(calen);
 		ActionUtility.waitForElementClickable(driver, 6, CALENDAR);
-		System.out.println("Entering Origin Date as: "+DataUtility.getSelectedstartdate());
+		System.out.println("Entering Origin Date as: " + DataUtility.getSelectedstartdate());
+		WebElement CAL_START_DATES = driver.findElement(originDate);
 		CAL_START_DATES.click();
 		ActionUtility.waitForPageLoaded(driver);
-		System.out.println("Entering Origin Date as: "+DataUtility.getSelectedreturndate());
+		System.out.println("Entering Origin Date as: " + DataUtility.getSelectedreturndate());
+		WebElement CAL_RETURN_DATES = driver.findElement(returnDate);
 		CAL_RETURN_DATES.click();
-		return new VoloTeaFlightSummary(driver);				
+		return new VoloTeaFlightSummary(driver);
 	}
 
-	public  VoloTeaFlightSummary doFlightSearch(String count) {
-		System.out.println("Selecting number of children as: "+DataUtility.getChildrenCount());
+	public VoloTeaFlightSummary doFlightSearch(String count) {
+		System.out.println("Selecting number of children as: " + DataUtility.getChildrenCount());
+		WebElement CHILDREN = driver.findElement(child);
 		Select childList = new Select(CHILDREN);
 		childList.selectByValue(count);
+		WebElement LINK_FINDFLIGHTS = driver.findElement(fingFlight);
 		ActionUtility.waitForElementClickable(driver, 6, LINK_FINDFLIGHTS);
 		LINK_FINDFLIGHTS.click();
 		System.out.println("Clicked on Find Flights.... Retriving the results for the search query made");
 		ActionUtility.waitForPageLoaded(driver);
 		return new VoloTeaFlightSummary(driver);
-		
+
+	}
+	
+	public boolean flightSearchCorrect() throws InterruptedException {
+		ActionUtility.waitForPageLoaded(driver);
+		WebElement LINK_FINDFLIGHTS = driver.findElement(fingFlight);
+		return LINK_FINDFLIGHTS.isDisplayed();
 	}
 
 }

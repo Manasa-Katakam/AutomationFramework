@@ -1,25 +1,22 @@
 package com.atm.modulefive.webdriver.advanced.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
+public class VoloTeaUserProfile extends VoloTeaAbstract {
 
-public class VoloTeaUserProfile extends VoloTeaAbstract{
-
-	@FindBy(id = "userNavbarOptions")
-	private WebElement LINK_YOUR_PROFILE;
+	private final By profile = By.xpath("//div[@id='userNavbarOptions']");
 
 	public VoloTeaUserProfile(WebDriver driver) {
 		super(driver);
 	}
 
-	public boolean loginIsCorrect() {
+	public boolean loginIsCorrect() throws InterruptedException {
 		ActionUtility.waitForPageLoaded(driver);
+		WebElement LINK_YOUR_PROFILE = driver.findElement(profile);
 		return LINK_YOUR_PROFILE.isDisplayed();
-
 	}
 }
-
