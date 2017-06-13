@@ -3,11 +3,17 @@ package com.atm.modulefive.webdriver.advanced.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class VoloTeaFlightSummary extends VoloTeaAbstract{
+import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
+
+public class VoloTeaFlightSummary {
 	
+	private WebDriver driver;
+
 	public VoloTeaFlightSummary(WebDriver driver) {
-		super(driver);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(xpath = "//div[@class='resume-wrapper']//p")
@@ -26,6 +32,7 @@ public class VoloTeaFlightSummary extends VoloTeaAbstract{
 	}
 	
 	public boolean isFlightDisplayed(){
+		ActionUtility.waitForPageLoaded(driver);
 		boolean flight = LABEL_ORIGIN.isDisplayed();
 		return flight;
 	}

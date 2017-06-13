@@ -3,13 +3,17 @@ package com.atm.modulefive.webdriver.advanced.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
-public class VoloTeaSignIn extends VoloTeaAbstract {
+public class VoloTeaSignIn {
+
+	private WebDriver driver;
 
 	public VoloTeaSignIn(WebDriver driver) {
-		super(driver);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(css = "a.switcherLogin")

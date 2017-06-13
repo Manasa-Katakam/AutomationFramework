@@ -3,16 +3,22 @@ package com.atm.modulefive.webdriver.advanced.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
 
-public class VoloTeaFlightSearch extends VoloTeaAbstract{
+public class VoloTeaFlightSearch {
 	
+	private WebDriver driver;
+
+
 	public VoloTeaFlightSearch(WebDriver driver) {
-		super(driver);
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
+
 	
 
 	@FindBy(xpath = "//input[@name='origin']")
@@ -72,6 +78,10 @@ public class VoloTeaFlightSearch extends VoloTeaAbstract{
 		ActionUtility.waitForSync();
 		return new VoloTeaFlightSummary(driver);
 		
+	}
+
+	public boolean flightSearchCorrect() {		
+		return LINK_FINDFLIGHTS.isDisplayed();
 	}
 
 

@@ -2,62 +2,57 @@ package com.atm.modulefive.webdriver.advanced.test;
 
 import java.util.concurrent.TimeUnit;
 
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
-import com.atm.modulefive.webdriver.advanced.driver.DefaultDriver;
+import com.atm.modulefive.webdriver.advanced.driver.ChromeDriverCreator;
+import com.atm.modulefive.webdriver.advanced.driver.Decorator;
+import com.atm.modulefive.webdriver.advanced.driver.WebDriverCreator;
 import com.atm.modulefive.webdriver.advanced.pages.VoloTeaFlightSearch;
-import com.atm.modulefive.webdriver.advanced.pages.VoloTeaFlightSummary;
-import com.atm.modulefive.webdriver.advanced.pages.VoloTeaSignIn;
-import com.atm.modulefive.webdriver.advanced.pages.VoloTeaUserProfile;
+import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
 
 public class VoloTeaTest {
-	
-	private static final String PASSENGER_COUNT = "2";
-	private static final String BROWSER_TYPE = "firefox";
-	private WebDriver driver;	
 
-	@BeforeClass(description = "Start Browser, maximize and add implicit sync wait time")
-	public void startBrowser() {
-		driver=DefaultDriver.initializeDriver(BROWSER_TYPE);
+	private WebDriverCreator creator;
+	private WebDriver driver;
+	/**
+	 * [MK] Implemented Factory Method pattern
+	 */
+	@Test(description = "Start Browser, maximize and add implicit sync wait time")
+	public void startBrowser() {		
+		creator = new ChromeDriverCreator();
+        driver = creator.factoryMethod();
 		driver.get(DataUtility.getStartUrl());
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
 	}
+	
+	/**
+	 * [MK] Implemented Decorator Pattern
+	 * @throws InterruptedException
+	 */
 
-	@Test(description = "Search Flights from Prague to Venice")
+	@Test(dependsOnMethods="startBrowser", description = "Search Flights from Prague to Venice")
 	public void EnterOriginReturnDetails() throws InterruptedException {
-		new VoloTeaFlightSearch(driver).addOriginReturnDetails();
+		WebDriver decoratedDriver = new Decorator(driver);
+		new VoloTeaFlightSearch(decoratedDriver).addOriginReturnDetails();
 		System.out.println("Entered the Origin and Return Locations with specific dates");
-		// [IK] Add assertion here. Each @Test should contain assertion. 
+		Assert.assertTrue(new VoloTeaFlightSearch(decoratedDriver).flightSearchCorrect(),
+				"Flight details are incorrect to proceed");
+		// [IK] Each @Test should contain assertion. There's no assertion here.
+		// [MK] Added a new assertion to validate the next step related element is displayed
 	}
-
-	@Test(dependsOnMethods = "EnterOriginReturnDetails", description = "Search Flights with given details")
-	public void SearchFlights() throws InterruptedException {
-		new VoloTeaFlightSearch(driver).doFlightSearch(DataUtility.getChildrenCount());
-		Assert.assertTrue(new VoloTeaFlightSummary(driver).getPassengerCount().contains(PASSENGER_COUNT),
-				"Flights Search query made with incorrect passebger count");
-		System.out.println("Completed the Flight Search with specific Details"); // [IK] Don't write code after assertions. It will not be executed in case the assertion fails.
-	}
-
-	@Test(dependsOnMethods = "SearchFlights", description = "Validate the Search query made previously")
-	public void FlightInformation() {
-		Assert.assertTrue(new VoloTeaFlightSummary(driver).isFlightDisplayed(),
-				"Flight Details are not displayed for the Search made!");
-		System.out.println("*****Outbound and Return Flight Details*****"); // [IK] Don't write code after assertions. It will not be executed in case the assertion fails.
-		System.out.println(new VoloTeaFlightSummary(driver).getOriginFlightDetails());
-		System.out.println(new VoloTeaFlightSummary(driver).getReturnFlightDetails());
-		System.out.println(
-				"Flight Search with given details have been made and the list of available flights are visible");
-	}
-
+	
+	/**
+	 * [MK] Implemented Decorator Pattern
+	 * @throws InterruptedException
+	 */
 	@AfterClass(description = "Stop Browser")
 	public void stopBrowser() {
-		driver.quit();
+		WebDriver decoratedDriver = new Decorator(driver);
+		decoratedDriver.quit();
+		
 	}
 }
