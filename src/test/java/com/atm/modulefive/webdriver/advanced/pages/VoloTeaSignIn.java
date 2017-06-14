@@ -8,55 +8,54 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
-public class VoloTeaSignIn  {
-	
-	@FindBy(css = "a.switcherLogin")
-	private WebElement LINK_SIGNIN;
+public class VoloTeaSignIn {
 
-	@FindBy(id = "emailLoginForm")
-	private WebElement INPUT_EMAIL;
+    @FindBy(css = "a.switcherLogin")
+    private WebElement LINK_SIGNIN;
 
-	@FindBy(id = "passwordLoginForm")
-	private WebElement INPUT_PASSWORD;
-	
-	/**
-	 * [MK] Example using @FindBys annotation
-	 */
-	
-//	@FindBys({
-//		@FindBy(id = "emailLoginForm"),@FindBy(tagName="input")
-//	})private WebElement INPUT_EMAIL;
-//	
-//	@FindBys({
-//		@FindBy(id = "passwordLoginForm"),@FindBy(tagName="input")
-//	})private WebElement INPUT_PASSWORD;
-	
-	@FindBy(xpath = "//form[@id='loginForm']//a[contains(@class,'voloteaButton')]")
-	private WebElement BUTTON_SIGNIN;
+    @FindBy(id = "emailLoginForm")
+    private WebElement INPUT_EMAIL;
 
-	private WebDriver driver;
-	
-	public VoloTeaSignIn(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
+    @FindBy(id = "passwordLoginForm")
+    private WebElement INPUT_PASSWORD;
 
-	public VoloTeaUserProfile doLogin(String email, String password) throws InterruptedException {
-		ActionUtility.waitForPageLoaded(driver);
-		ActionUtility.waitForElementClickable(driver, 6, LINK_SIGNIN);
-		ActionUtility.jsClick(driver, LINK_SIGNIN);
-		ActionUtility.waitForPageLoaded(driver);
-		System.out.println("Clicked on Sign-In Link On Home Page");
-		System.out.println("Typing user login: " + email);
-		INPUT_EMAIL.clear();
-		INPUT_EMAIL.sendKeys(email);
-		System.out.println("Typing user password: " + password);
-		INPUT_PASSWORD.clear();
-		INPUT_PASSWORD.sendKeys(password);
-		BUTTON_SIGNIN.click();
-		System.out.println("Login is in progress...");
-		return new VoloTeaUserProfile(driver);		
-	}
+    /**
+     * [MK] Example using @FindBys annotation
+     */
 
+    // @FindBys({
+    // @FindBy(id = "emailLoginForm"),@FindBy(tagName="input")
+    // })private WebElement INPUT_EMAIL;
+    //
+    // @FindBys({
+    // @FindBy(id = "passwordLoginForm"),@FindBy(tagName="input")
+    // })private WebElement INPUT_PASSWORD;
+
+    @FindBy(xpath = "//form[@id='loginForm']//a[contains(@class,'voloteaButton')]")
+    private WebElement BUTTON_SIGNIN;
+
+    private WebDriver driver;
+
+    public VoloTeaSignIn(WebDriver driver) {
+	this.driver = driver;
+	PageFactory.initElements(driver, this);
+    }
+
+    public VoloTeaUserProfile doLogin(String email, String password) throws InterruptedException {
+	ActionUtility.waitForPageLoaded(driver);
+	ActionUtility.waitForElementClickable(driver, 6, LINK_SIGNIN);
+	ActionUtility.jsClick(driver, LINK_SIGNIN);
+	ActionUtility.waitForPageLoaded(driver);
+	System.out.println("Clicked on Sign-In Link On Home Page");
+	System.out.println("Typing user login: " + email);
+	INPUT_EMAIL.clear();
+	INPUT_EMAIL.sendKeys(email);
+	System.out.println("Typing user password: " + password);
+	INPUT_PASSWORD.clear();
+	INPUT_PASSWORD.sendKeys(password);
+	BUTTON_SIGNIN.click();
+	System.out.println("Login is in progress...");
+	return new VoloTeaUserProfile(driver);
+    }
 
 }

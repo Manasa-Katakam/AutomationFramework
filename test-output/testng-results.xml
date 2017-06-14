@@ -2,50 +2,75 @@
 <testng-results skipped="1" failed="1" ignored="0" total="4" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="390698" started-at="2017-06-13T08:47:17Z" finished-at="2017-06-13T08:53:48Z">
+  <suite name="Default suite" duration-ms="88993" started-at="2017-06-14T16:07:43Z" finished-at="2017-06-14T16:09:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="390698" started-at="2017-06-13T08:47:17Z" finished-at="2017-06-13T08:53:48Z">
+    <test name="Default test" duration-ms="88993" started-at="2017-06-14T16:07:43Z" finished-at="2017-06-14T16:09:12Z">
       <class name="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest">
-        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679]" name="startBrowser" is-config="true" duration-ms="9789" started-at="2017-06-13T14:17:17Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-13T14:17:27Z">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19]" name="startBrowser" is-config="true" duration-ms="8859" started-at="2017-06-14T19:07:43Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-14T19:07:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method status="PASS" signature="LoginToVoloTea()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679]" name="LoginToVoloTea" duration-ms="9456" started-at="2017-06-13T14:17:27Z" description="SignIn to VoloTea Application" finished-at="2017-06-13T14:17:36Z">
+        <test-method status="PASS" signature="LoginToVoloTea()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19]" name="LoginToVoloTea" duration-ms="9932" started-at="2017-06-14T19:07:52Z" description="SignIn to VoloTea Application" finished-at="2017-06-14T19:08:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginToVoloTea -->
-        <test-method status="PASS" signature="EnterOriginReturnDetails()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679]" name="EnterOriginReturnDetails" duration-ms="10391" started-at="2017-06-13T14:17:36Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.LoginToVoloTea" finished-at="2017-06-13T14:17:47Z">
+        <test-method status="PASS" signature="EnterOriginReturnDetails()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19]" name="EnterOriginReturnDetails" duration-ms="10801" started-at="2017-06-14T19:08:02Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.LoginToVoloTea" finished-at="2017-06-14T19:08:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnterOriginReturnDetails -->
-        <test-method status="FAIL" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679]" name="SearchFlights" duration-ms="360269" started-at="2017-06-13T14:17:47Z" description="Search Flights with given details" depends-on-methods="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.EnterOriginReturnDetails" finished-at="2017-06-13T14:23:47Z">
-          <exception class="org.openqa.selenium.NoSuchElementException">
+        <test-method status="FAIL" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19]" name="SearchFlights" duration-ms="58333" started-at="2017-06-14T19:08:13Z" description="Search Flights with given details" depends-on-methods="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.EnterOriginReturnDetails" finished-at="2017-06-14T19:09:11Z">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
             <message>
-              <![CDATA[Cannot locate an element using By.chained({By.tagName: select,By.name: children})
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+              <![CDATA[stale element reference: element is not attached to the page document
+  (Session info: chrome=59.0.3071.86)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 58.28 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
-System info: host: 'EPINHYDW0086', ip: '10.71.8.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_60'
-Driver info: driver.version: RemoteWebDriver]]>
+System info: host: 'EPBYMINW2898', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\IGAR_K~1\AppData\Local\Temp\scoped_dir1240_28219}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.86, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 02c8b180feeef431b72ba5da8c815c11
+*** Element info: {Using=name, value=children}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Cannot locate an element using By.chained({By.tagName: select,By.name: children})
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=59.0.3071.86)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 58.28 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.3.1', revision: '5234b325d5', time: '2017-03-10 09:10:29 +0000'
-System info: host: 'EPINHYDW0086', ip: '10.71.8.184', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_60'
-Driver info: driver.version: RemoteWebDriver
-	at org.openqa.selenium.support.pagefactory.ByChained.findElement(ByChained.java:54)
+System info: host: 'EPBYMINW2898', ip: '192.168.56.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\IGAR_K~1\AppData\Local\Temp\scoped_dir1240_28219}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=59.0.3071.86, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 02c8b180feeef431b72ba5da8c815c11
+*** Element info: {Using=name, value=children}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:216)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:168)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:638)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:274)
+	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:193)
+	at org.openqa.selenium.remote.RemoteWebElement.findElementsByName(RemoteWebElement.java:230)
+	at org.openqa.selenium.By$ByName.findElements(By.java:295)
+	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:169)
+	at org.openqa.selenium.support.pagefactory.ByChained.findElements(ByChained.java:72)
+	at org.openqa.selenium.support.pagefactory.ByChained.findElement(ByChained.java:52)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at com.sun.proxy.$Proxy7.getTagName(Unknown Source)
 	at org.openqa.selenium.support.ui.Select.<init>(Select.java:44)
-	at com.atm.modulefive.webdriver.advanced.pages.VoloTeaFlightSearch.doFlightSearch(VoloTeaFlightSearch.java:78)
-	at com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.SearchFlights(VoloTeaTest.java:58)
+	at com.atm.modulefive.webdriver.advanced.pages.VoloTeaFlightSearch.doFlightSearch(VoloTeaFlightSearch.java:77)
+	at com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.SearchFlights(VoloTeaTest.java:52)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:497)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
@@ -69,17 +94,17 @@ Driver info: driver.version: RemoteWebDriver
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchFlights -->
-        <test-method status="SKIP" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679]" name="FlightInformation" duration-ms="0" started-at="2017-06-13T14:23:47Z" description="Validate the Search query made previously" depends-on-methods="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.SearchFlights" finished-at="2017-06-13T14:23:47Z">
+        <test-method status="SKIP" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19]" name="FlightInformation" duration-ms="0" started-at="2017-06-14T19:09:11Z" description="Validate the Search query made previously" depends-on-methods="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.SearchFlights" finished-at="2017-06-14T19:09:11Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method VoloTeaTest.FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679] depends on not successfully finished methods]]>
+              <![CDATA[Method VoloTeaTest.FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method VoloTeaTest.FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method VoloTeaTest.FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19] depends on not successfully finished methods
 	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
 	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -104,7 +129,7 @@ Driver info: driver.version: RemoteWebDriver
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FlightInformation -->
-        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@29774679]" name="stopBrowser" is-config="true" duration-ms="774" started-at="2017-06-13T14:23:47Z" description="Stop Browser" finished-at="2017-06-13T14:23:48Z">
+        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@3532ec19]" name="stopBrowser" is-config="true" duration-ms="1025" started-at="2017-06-14T19:09:11Z" description="Stop Browser" finished-at="2017-06-14T19:09:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopBrowser -->
