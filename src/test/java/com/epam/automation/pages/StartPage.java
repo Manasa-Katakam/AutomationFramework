@@ -10,25 +10,22 @@ import com.epam.automation.tests.WebDriverInitialize;
 
 public class StartPage {
 
-	@FindBy(xpath = "//a[text()='Sign in']")
-	private WebElement signInButton;
-	
-	// private final WebDriver driver; // [IK] Use already initialized WebDriver.
-	
-	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
-	// [MK] commented the unnecessay re-initialised code
+    @FindBy(xpath = "//a[text()='Sign in']")
+    private WebElement signInButton;
 
-	public StartPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
+    WebDriver driver = WebDriverInitialize.getWebDriverInstance();
 
-	public void openGitHubURL() {
-		driver.get(Constants.getGithubBaseUrl());
-	}
+    public StartPage(WebDriver driver) {
+	this.driver = driver;
+	PageFactory.initElements(driver, this);
+    }
 
-	public SignInPage invokeSignIn() {
-		signInButton.click();
-		return new SignInPage(driver);
-	}
+    public void openGitHubURL() {
+	driver.get(Constants.getGithubBaseUrl());
+    }
+
+    public SignInPage invokeSignIn() {
+	signInButton.click();
+	return new SignInPage(driver);
+    }
 }

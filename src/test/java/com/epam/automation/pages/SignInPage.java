@@ -15,47 +15,44 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignInPage {
 
-	@FindBy(id = "login_field")
-	private WebElement textboxUsername;
+    @FindBy(id = "login_field")
+    private WebElement textboxUsername;
 
-	@FindBy(id = "password")
-	private WebElement textboxPassword;
+    @FindBy(id = "password")
+    private WebElement textboxPassword;
 
-	@FindBy(xpath = "//input[@value='Sign in']")
-	private WebElement buttonSignIn;
+    @FindBy(xpath = "//input[@value='Sign in']")
+    private WebElement buttonSignIn;
 
-	// private final WebDriver driver; // [IK] Use already initialized WebDriver.
-	
-	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
-	// [MK] commented the unnecessay re-initialised code
+    WebDriver driver = WebDriverInitialize.getWebDriverInstance();
 
-	public SignInPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+    public SignInPage(WebDriver driver) {
+	this.driver = driver;
+	PageFactory.initElements(driver, this);
+    }
+
+    public HomePage signInGitHub(String username, String password) throws CustomException {
+	try {
+	    textboxUsername.sendKeys(username);
+	    textboxPassword.sendKeys(password);
+	    buttonSignIn.click();
+	} catch (StaleElementReferenceException e) {
+	    System.out.println("Element value has been reloaded or expired " + e);
+	} catch (TimeoutException e) {
+	    System.out.println("Appliaction not loaded completely" + e);
+	} catch (NoSuchElementException e) {
+	    System.out.println("Element not found " + e);
 	}
 
-	public HomePage signInGitHub(String username, String password) throws CustomException {
-		try {
-			textboxUsername.sendKeys(username);
-			textboxPassword.sendKeys(password);
-			buttonSignIn.click();
-		} catch (StaleElementReferenceException e) {
-			System.out.println("Element value has been reloaded or expired " + e);
-		} catch (TimeoutException e) {
-			System.out.println("Appliaction not loaded completely" + e);
-		} catch (NoSuchElementException e) {
-			System.out.println("Element not found " + e);
-		}
+	return new HomePage(driver);
+    }
 
-		return new HomePage(driver);
+    public boolean isReadyToSignIn() throws ElementNotVisibleException {
+	if (buttonSignIn.isDisplayed()) {
+	    return true;
+	} else {
+	    throw new ElementNotVisibleException("The Button SignIn is not Visible On the UI");
 	}
-
-	public boolean isReadyToSignIn() throws ElementNotVisibleException {
-		if (buttonSignIn.isDisplayed()) {
-			return true;
-		} else {
-			throw new ElementNotVisibleException("The Button SignIn is not Visible On the UI");
-		}
-	}
+    }
 
 }

@@ -9,37 +9,29 @@ import com.epam.automation.tests.WebDriverInitialize;
 
 public class HomePage {
 
-	@FindBy(xpath = "//button[@aria-label='Switch account context']/span")
-	private WebElement linkLoggedInUser;
+    @FindBy(xpath = "//button[@aria-label='Switch account context']/span")
+    private WebElement linkLoggedInUser;
 
-	//	private final WebDriver driver; // [IK] Use already initialized WebDriver.
-	
-	WebDriver driver  = WebDriverInitialize.getWebDriverInstance(); // [IK] Here it is.
-	
-	// [MK] commented the unnecessay re-initialised code
+    WebDriver driver = WebDriverInitialize.getWebDriverInstance();
 
-	public HomePage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+    public HomePage(WebDriver driver) {
+	this.driver = driver;
+	PageFactory.initElements(driver, this);
+    }
+
+    public String getLoggedInUserName() {
+	return linkLoggedInUser.getText();
+    }
+
+    public boolean hasUserLoggedIn() {
+	if (linkLoggedInUser.getText() != "") {
+	    return true;
+	} else {
+	    return false;
 	}
+    }
 
-	public String getLoggedInUserName() {
-		return linkLoggedInUser.getText();
-	}
-
-	/**
-	 * [IK] Better use boolean here. 
-	 * [MK] Implemented the same with boolean
-	 */
-	public boolean hasUserLoggedIn() {
-		if (linkLoggedInUser.getText() != "") { 
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	public WebDriver getDriver() {
-		return driver;
-	}
+    public WebDriver getDriver() {
+	return driver;
+    }
 }
