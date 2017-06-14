@@ -1,4 +1,4 @@
-package com.atm.modulefive.webdriver.advanced.driver;
+package com.atm.modulefive.webdriver.advanced.configuration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

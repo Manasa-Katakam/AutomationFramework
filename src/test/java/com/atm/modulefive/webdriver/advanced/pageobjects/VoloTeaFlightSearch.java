@@ -1,4 +1,4 @@
-package com.atm.modulefive.webdriver.advanced.pages;
+package com.atm.modulefive.webdriver.advanced.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,8 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.atm.modulefive.webdriver.advanced.testdata.DataUtility;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
-import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
 
 public class VoloTeaFlightSearch {
 	

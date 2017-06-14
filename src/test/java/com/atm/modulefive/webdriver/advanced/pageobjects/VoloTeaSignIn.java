@@ -1,10 +1,11 @@
-package com.atm.modulefive.webdriver.advanced.pages;
+package com.atm.modulefive.webdriver.advanced.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.atm.modulefive.webdriver.advanced.testdata.User;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
 public class VoloTeaSignIn {
@@ -40,6 +41,24 @@ public class VoloTeaSignIn {
 		System.out.println("Typing user password: " + password);
 		INPUT_PASSWORD.clear();
 		INPUT_PASSWORD.sendKeys(password);
+		BUTTON_SIGNIN.click();
+		System.out.println("Login is in progress...");
+		return new VoloTeaUserProfile(driver);
+	}
+
+	public VoloTeaUserProfile doLogin(User user) throws InterruptedException {
+		ActionUtility.waitForSync();
+		ActionUtility.waitForElementClickable(driver, 6, LINK_SIGNIN);
+		ActionUtility.jsClick(driver, LINK_SIGNIN);
+		//LINK_SIGNIN.click();
+		System.out.println("Clicked on Sign-In Link On Home Page");
+		System.out.println("Typing user login: " + user.getEmail());
+		ActionUtility.waitForSync();
+		INPUT_EMAIL.clear();
+		INPUT_EMAIL.sendKeys(user.getEmail());
+		System.out.println("Typing user password: " + user.getPassword());
+		INPUT_PASSWORD.clear();
+		INPUT_PASSWORD.sendKeys(user.getPassword());
 		BUTTON_SIGNIN.click();
 		System.out.println("Login is in progress...");
 		return new VoloTeaUserProfile(driver);

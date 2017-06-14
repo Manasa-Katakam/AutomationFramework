@@ -1,4 +1,4 @@
-package com.atm.modulefive.webdriver.advanced.test;
+package com.atm.modulefive.webdriver.advanced.tests;
 
 import java.util.concurrent.TimeUnit;
 
@@ -7,11 +7,11 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
-import com.atm.modulefive.webdriver.advanced.driver.ChromeDriverCreator;
-import com.atm.modulefive.webdriver.advanced.driver.Decorator;
-import com.atm.modulefive.webdriver.advanced.driver.WebDriverCreator;
-import com.atm.modulefive.webdriver.advanced.pages.VoloTeaFlightSearch;
-import com.atm.modulefive.webdriver.advanced.utils.DataUtility;
+import com.atm.modulefive.webdriver.advanced.configuration.ChromeDriverCreator;
+import com.atm.modulefive.webdriver.advanced.configuration.Decorator;
+import com.atm.modulefive.webdriver.advanced.configuration.WebDriverCreator;
+import com.atm.modulefive.webdriver.advanced.pageobjects.VoloTeaFlightSearch;
+import com.atm.modulefive.webdriver.advanced.testdata.DataUtility;
 
 public class VoloTeaTest {
 

@@ -1,4 +1,4 @@
-package com.atm.modulefive.webdriver.advanced.utils;
+package com.atm.modulefive.webdriver.advanced.testdata;
 
 public class DataUtility {
 

@@ -1,4 +1,4 @@
-package com.atm.modulefive.webdriver.advanced.driver;
+package com.atm.modulefive.webdriver.advanced.configuration;
 
 import java.util.List;
 import java.util.Set;

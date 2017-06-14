@@ -1,4 +1,4 @@
-package com.atm.modulefive.webdriver.advanced.pages;
+package com.atm.modulefive.webdriver.advanced.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
