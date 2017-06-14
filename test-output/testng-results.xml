@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28819" started-at="2017-06-07T08:14:51Z" finished-at="2017-06-07T08:15:20Z">
+  <suite name="Default suite" duration-ms="42524" started-at="2017-06-14T15:42:29Z" finished-at="2017-06-14T15:43:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28819" started-at="2017-06-07T08:14:51Z" finished-at="2017-06-07T08:15:20Z">
+    <test name="Default test" duration-ms="42524" started-at="2017-06-14T15:42:29Z" finished-at="2017-06-14T15:43:12Z">
       <class name="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo">
-        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="startBrowser" is-config="true" duration-ms="5989" started-at="2017-06-07T11:14:51Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-07T11:14:57Z">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="startBrowser" is-config="true" duration-ms="7918" started-at="2017-06-14T18:42:29Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-14T18:42:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method status="PASS" signature="VoloTeaSignIn()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="VoloTeaSignIn" duration-ms="3986" started-at="2017-06-07T11:14:57Z" description="SignIn to VoloTea Application" finished-at="2017-06-07T11:15:01Z">
+        <test-method status="PASS" signature="VoloTeaSignIn()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="VoloTeaSignIn" duration-ms="3967" started-at="2017-06-14T18:42:37Z" description="SignIn to VoloTea Application" finished-at="2017-06-14T18:42:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VoloTeaSignIn -->
-        <test-method status="PASS" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="SearchFlights" duration-ms="17517" started-at="2017-06-07T11:15:01Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo.VoloTeaSignIn" finished-at="2017-06-07T11:15:19Z">
+        <test-method status="PASS" signature="SearchFlights()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="SearchFlights" duration-ms="29291" started-at="2017-06-14T18:42:41Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo.VoloTeaSignIn" finished-at="2017-06-14T18:43:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchFlights -->
-        <test-method status="PASS" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="FlightInformation" duration-ms="294" started-at="2017-06-07T11:15:19Z" description="Validate the Search query made previously" depends-on-methods="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo.SearchFlights" finished-at="2017-06-07T11:15:19Z">
+        <test-method status="PASS" signature="verifyTitle()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="verifyTitle" duration-ms="11" started-at="2017-06-14T18:43:11Z" description="Verify page title" depends-on-methods="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo.VoloTeaSignIn" finished-at="2017-06-14T18:43:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitle -->
+        <test-method status="PASS" signature="FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="FlightInformation" duration-ms="195" started-at="2017-06-14T18:43:11Z" description="Validate Flight Search and Passenger Details" depends-on-methods="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo.SearchFlights" finished-at="2017-06-14T18:43:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FlightInformation -->
-        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="stopBrowser" is-config="true" duration-ms="1001" started-at="2017-06-07T11:15:19Z" description="Stop Browser" finished-at="2017-06-07T11:15:20Z">
+        <test-method status="PASS" signature="FlightOriginInformation()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="FlightOriginInformation" duration-ms="63" started-at="2017-06-14T18:43:11Z" description="Validate Origin Details" depends-on-methods="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo.SearchFlights" finished-at="2017-06-14T18:43:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FlightOriginInformation -->
+        <test-method status="PASS" signature="FlightReturnInformation()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="FlightReturnInformation" duration-ms="57" started-at="2017-06-14T18:43:11Z" description="Validate Return Details" depends-on-methods="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo.SearchFlights" finished-at="2017-06-14T18:43:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FlightReturnInformation -->
+        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo@3532ec19]" name="stopBrowser" is-config="true" duration-ms="980" started-at="2017-06-14T18:43:11Z" description="Stop Browser" finished-at="2017-06-14T18:43:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- stopBrowser -->
