@@ -2,29 +2,20 @@ package com.atm.modulefive.webdriver.basics.testdata;
 
 public class Constants {
 
-    private static Constants constants = null; 
+    private static Constants constants = null;
 
-    private static final String START_URL = "http://www.volotea.com/en"; // [IK]
-									// make
-									// private [MK] done
+    private static final String START_URL = "http://www.volotea.com/en";
 
-    private static final String EMAIL = "lakmankat@gmail.com"; // [IK] make
-							      // private [MK] done
+    private static final String EMAIL = "lakmankat@gmail.com";
 
-    private static final String PASSWORD = "travel2017"; // [IK] make private [MK] done 
+    private static final String PASSWORD = "travel2017";
 
-    private static final String PAGETITLE = "VOLOTEA - Cheap flights, offers and plane tickets to Europe"; // [IK]
-													  // make
-													  // private [MK] done
+    private static final String PAGETITLE = "VOLOTEA - Cheap flights, offers and plane tickets to Europe";
 
-    private String StartDate; 
+    private String StartDate;
 
-    private String ReturnDate; 
+    private String ReturnDate;
 
-    /**
-     * [IK] New code, added by me.
-     * 
-     */
     public static synchronized Constants getInstance() {
 	if (constants == null) {
 	    constants = new Constants();
