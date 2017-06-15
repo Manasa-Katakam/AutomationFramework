@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="26757" started-at="2017-06-14T13:15:24Z" finished-at="2017-06-14T13:15:51Z">
+  <suite name="Default suite" duration-ms="29892" started-at="2017-06-15T12:37:26Z" finished-at="2017-06-15T12:37:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="26757" started-at="2017-06-14T13:15:24Z" finished-at="2017-06-14T13:15:51Z">
-      <class name="com.atm.modulefive.webdriver.advanced.tests.VoloTeaLoginWithUsers">
-        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaLoginWithUsers@61832929]" name="startBrowser" is-config="true" duration-ms="9658" started-at="2017-06-14T18:45:24Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-14T18:45:34Z">
+    <test name="Default test" duration-ms="29892" started-at="2017-06-15T12:37:26Z" finished-at="2017-06-15T12:37:56Z">
+      <class name="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@6ff29830]" name="startBrowser" duration-ms="12655" started-at="2017-06-15T18:07:26Z" description="Start Browser, maximize and add implicit sync wait time" finished-at="2017-06-15T18:07:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method status="PASS" signature="LoginToVoloTea()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaLoginWithUsers@61832929]" name="LoginToVoloTea" duration-ms="17085" started-at="2017-06-14T18:45:34Z" description="SignIn to VoloTea Application" finished-at="2017-06-14T18:45:51Z">
+        <test-method status="PASS" signature="EnterOriginReturnDetails()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@6ff29830]" name="EnterOriginReturnDetails" duration-ms="10173" started-at="2017-06-15T18:07:41Z" description="Search Flights from Prague to Venice" depends-on-methods="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest.startBrowser" finished-at="2017-06-15T18:07:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginToVoloTea -->
-      </class> <!-- com.atm.modulefive.webdriver.advanced.tests.VoloTeaLoginWithUsers -->
+        </test-method> <!-- EnterOriginReturnDetails -->
+        <test-method status="PASS" signature="stopBrowser()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest@6ff29830]" name="stopBrowser" is-config="true" duration-ms="775" started-at="2017-06-15T18:07:55Z" description="Stop Browser" finished-at="2017-06-15T18:07:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopBrowser -->
+      </class> <!-- com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

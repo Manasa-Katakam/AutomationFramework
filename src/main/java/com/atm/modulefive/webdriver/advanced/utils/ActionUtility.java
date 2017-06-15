@@ -2,7 +2,8 @@ package com.atm.modulefive.webdriver.advanced.utils;
 
 import java.util.concurrent.TimeUnit;
 
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class ActionUtility {
-
+	
+	static Logger logger = LogManager.getRootLogger();
+	
 	public static void waitForElementClickable(WebDriver driver, int timeout,
 			final WebElement element) {
 		new WebDriverWait(driver, timeout).pollingEvery(2, TimeUnit.SECONDS)
@@ -37,7 +40,8 @@ public class ActionUtility {
 			WebDriverWait wait = new WebDriverWait(driver, 30);
 			wait.until(expectation);
 		} catch (Throwable error) {
-			Assert.fail("Timeout waiting for Page Load Request to complete.");
+			Assert.fail("Exception to wait for page load or Timeout Exception");
+			logger.trace("Exception trace: "+error.getMessage());
 		}
 		
 	}

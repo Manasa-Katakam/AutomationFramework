@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Properties>
+		<Property name="local-location">./resources/logs</Property>
+     	<!-- Specify Application Name  -->
+     	<Property name="appname">VoloTea</Property>
+        <!-- Specify Log File Archive Size Here -->
+        <Property name="size">10 KB</Property>    
+ 	</Properties>	
+    <Appenders>
+        <Console name="Console">
+            <PatternLayout>
+                <Pattern>%d %p %c{2} [%t] %l %m%n</Pattern>
+            </PatternLayout>
+        </Console>
+        <File name="File" fileName=".\resources\logs\app.log">
+        	<PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    	</File>
+    </Appenders>
+    <RollingFile name="RollingFile" fileName="${local-location}/Current-${appname}.log" filePattern="${local-location}/${date:yyyy-MM}/Archive-${appname}_-%d{yyyy-MM-dd}-%i.log">               
+            <PatternLayout>
+                <pattern>%-5p %d ${local-location} -=$${env:HOST}=-  [%t] %c: %m%n</pattern>  
+         </PatternLayout>
+         <Policies>
+               <SizeBasedTriggeringPolicy size="${size}" />
+            </Policies>
+       </RollingFile>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
