@@ -3,17 +3,13 @@ package com.atm.modulefive.webdriver.advanced.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
-public class VoloTeaFlightSummary {
+public class VoloTeaFlightSummary extends VoloTeaAbstract{
 	
-	private WebDriver driver;
-
 	public VoloTeaFlightSummary(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
 
 	@FindBy(xpath = "//div[@class='resume-wrapper']//p")

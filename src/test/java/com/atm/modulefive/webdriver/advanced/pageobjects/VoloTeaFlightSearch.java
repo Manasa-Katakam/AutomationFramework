@@ -3,23 +3,16 @@ package com.atm.modulefive.webdriver.advanced.pageobjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.atm.modulefive.webdriver.advanced.testdata.DataUtility;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
-public class VoloTeaFlightSearch {
+public class VoloTeaFlightSearch extends VoloTeaAbstract{
 	
-	private WebDriver driver;
-
-
 	public VoloTeaFlightSearch(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
-
-	
 
 	@FindBy(xpath = "//input[@name='origin']")
 	private WebElement FIELD_ORIGIN;
