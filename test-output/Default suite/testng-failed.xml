@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest2">
+      <class name="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton">
         <methods>
           <include name="FlightInformation"/>
+          <include name="startBrowser"/>
           <include name="stopBrowser"/>
           <include name="SearchFlights"/>
         </methods>
-      </class> <!-- com.atm.modulefive.webdriver.advanced.tests.VoloTeaTest2 -->
+      </class> <!-- com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

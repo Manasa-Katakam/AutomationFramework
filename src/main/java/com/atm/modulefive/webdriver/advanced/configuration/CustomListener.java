@@ -17,7 +17,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class CustomListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
+public class CustomListener implements ITestListener, ISuiteListener, IInvokedMethodListener{
 	
 	WebDriver driver=null;
 	String filePath = "./resources/screenshots/";
@@ -25,18 +25,23 @@ public class CustomListener implements ITestListener, ISuiteListener, IInvokedMe
 	
 	public void onTestStart(ITestResult result) {
 		logger.info("*****The name of the testcase Started is :"+result.getName());
+		String methodName=result.getName().toString().trim();
+		String Name = "Startof"+methodName;
+		takeScreenshot(Name);	
 	}
 
 	public void onTestSuccess(ITestResult result) {		
 		logger.info("*****The name of the testcase Passed is :"+result.getName());
 		String methodName=result.getName().toString().trim();
-		takeScreenshot(methodName);	
+		String Name = "OnSuccessof"+methodName;
+		takeScreenshot(Name);	
 	}
 
 	public void onTestFailure(ITestResult result) {
 		logger.info("*****The name of the testcase Failed is :"+result.getName());
 		String methodName=result.getName().toString().trim();
-		takeScreenshot(methodName);	
+		String Name = "OnFailureof"+methodName;
+		takeScreenshot(Name);	
 	}
 
 	public void onTestSkipped(ITestResult result) {		
@@ -70,11 +75,11 @@ public class CustomListener implements ITestListener, ISuiteListener, IInvokedMe
 		
 	}
 	
-	private void takeScreenshot(String methodName) {
+	private void takeScreenshot(String Name) {
 		driver = DefaultDriver.initializeDriver(); 
 		 File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		 try {
-				FileUtils.copyFile(scrFile, new File(filePath+methodName+".png"));
+				FileUtils.copyFile(scrFile, new File(filePath+Name+".png"));
 			} catch (IOException e) {
 				logger.trace("Error in plcaing the file due to, "+e.getMessage());
 			}

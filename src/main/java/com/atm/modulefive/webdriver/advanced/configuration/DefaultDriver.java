@@ -18,7 +18,7 @@ public class DefaultDriver {
             DesiredCapabilities capabilities = DesiredCapabilities.chrome();
     		driver = new ChromeDriver(capabilities);
         }
-        return driver;
+		return driver;
 	}
 
 	public static void closeBrowser() {
