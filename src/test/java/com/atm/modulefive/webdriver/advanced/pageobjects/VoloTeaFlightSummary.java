@@ -28,7 +28,6 @@ public class VoloTeaFlightSummary extends VoloTeaAbstract{
 	}
 	
 	public boolean isFlightDisplayed(){
-		ActionUtility.waitForPageLoaded(driver);
 		boolean flight = LABEL_ORIGIN.isDisplayed();
 		return flight;
 	}
