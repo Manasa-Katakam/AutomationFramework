@@ -5,19 +5,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DefaultDriver {
-	
+
 	private static WebDriver driver;
-	
-	private DefaultDriver(){
-		
+
+	private DefaultDriver() {
+
 	}
-	
-	public static WebDriver initializeDriver(){
+
+	public static WebDriver initializeDriver() {
 		if (null == driver) {
-            System.setProperty("webdriver.chrome.driver", "./libs/chromedriver.exe");
-            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-    		driver = new ChromeDriver(capabilities);
-        }
+			System.setProperty("webdriver.chrome.driver", "./libs/chromedriver.exe");
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			driver = new ChromeDriver(capabilities);
+		}
 		return driver;
 	}
 

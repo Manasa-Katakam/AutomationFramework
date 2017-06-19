@@ -26,44 +26,53 @@ public class VoloTeaTestwithSingleton {
 	private WebDriver driver;
 	Logger logger = LogManager.getRootLogger();
 
-	
-	@BeforeClass(description="Intialize webdriver and launch application")
-	public void startBrowser(){
+	CustomListener listener = new CustomListener();
+
+	@BeforeClass(description = "Intialize webdriver and launch application")
+	public void startBrowser() {
 		driver = DefaultDriver.initializeDriver(); // Singleton Implementation
 		driver.get(DataUtility.getStartUrl());
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
+		listener.takeIntermediateScreenshot("Test 4"); // [IK] Added to check
+														// screenshots
 	}
-	
+
 	@Test(description = "SignIn to VoloTea Application")
 	public void LoginToVoloTea() throws InterruptedException {
 		logger.info("USER login initiated...");
-		boolean signInComplete = new VoloTeaSignIn(driver).doLogin(new User())
-				.loginIsCorrect();
+		boolean signInComplete = new VoloTeaSignIn(driver).doLogin(new User()).loginIsCorrect();
+		listener.takeIntermediateScreenshot("Test 5"); // [IK] Added to check
+														// screenshots
 		Assert.assertTrue(signInComplete, "User Authentication Failed, Not Logged in!");
 	}
-	
-	@Test(description = "Search Flights with given details", dependsOnMethods="LoginToVoloTea")
+
+	@Test(description = "Search Flights with given details", dependsOnMethods = "LoginToVoloTea")
 	public void SearchFlights() throws InterruptedException {
 		new VoloTeaFlightSearch(driver).addOriginReturnDetails();
 		System.out.println("Initiate the Flight Search with specific Details suppied...");
 		new VoloTeaFlightSearch(driver).doFlightSearch(DataUtility.getChildrenCount());
+		listener.takeIntermediateScreenshot("Test 6"); // [IK] Added to check
+														// screenshots
 		Assert.assertTrue(new VoloTeaFlightSummary(driver).getPassengerCount().contains(PASSENGER_COUNT),
-				"Flights Search query made with incorrect passebger count"); 		
+				"Flights Search query made with incorrect passebger count");
 	}
 
 	@Test(dependsOnMethods = "SearchFlights", description = "Validate the Search query made previously")
-	public void FlightInformation() throws InterruptedException {		
-		WebDriver decoratedDriver = new Decorator(driver); // Decorator Implementation
+	public void FlightInformation() throws InterruptedException {
+		WebDriver decoratedDriver = new Decorator(driver); // Decorator
+															// Implementation
 		System.out.println("*****Outbound and Return Flight Details*****");
 		System.out.println(new VoloTeaFlightSummary(decoratedDriver).getOriginFlightDetails());
 		System.out.println(new VoloTeaFlightSummary(decoratedDriver).getReturnFlightDetails());
 		System.out.println(
 				"Flight Search with given details have been made and the list of available flights are visible");
+		listener.takeIntermediateScreenshot("Test 7"); // [IK] Added to check
+														// screenshots
 		Assert.assertTrue(new VoloTeaFlightSummary(decoratedDriver).isFlightDisplayed(),
 				"Flight Details are not displayed for the Search made!");
 	}
-	
+
 	@AfterClass(description = "Stop Browser")
 	public void stopBrowser() {
 		DefaultDriver.closeBrowser();

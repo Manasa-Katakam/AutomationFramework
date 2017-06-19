@@ -8,10 +8,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import com.atm.modulefive.webdriver.advanced.configuration.CustomListener;
 import com.atm.modulefive.webdriver.advanced.testdata.DataUtility;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
 public class VoloTeaFlightSearch {
+
+	CustomListener listener = new CustomListener();
 
 	private WebDriver driver;
 	Logger logger = LogManager.getRootLogger();
@@ -64,6 +67,8 @@ public class VoloTeaFlightSearch {
 		ActionUtility.waitForSync();
 		logger.info("Entering Origin Date as: " + DataUtility.getSelectedreturndate());
 		CAL_RETURN_DATES.click();
+		listener.takeIntermediateScreenshot("Test 1"); // [IK] Added to check
+														// screenshots
 		return new VoloTeaFlightSummary(driver);
 	}
 
@@ -75,6 +80,8 @@ public class VoloTeaFlightSearch {
 		LINK_FINDFLIGHTS.click();
 		logger.info("Clicked on Find Flights.... Retriving the results for the search query made");
 		ActionUtility.waitForSync();
+		listener.takeIntermediateScreenshot("Test 2"); // [IK] Added to check
+														// screenshots
 		return new VoloTeaFlightSummary(driver);
 
 	}

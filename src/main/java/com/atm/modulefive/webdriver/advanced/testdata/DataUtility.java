@@ -12,7 +12,6 @@ public class DataUtility {
 	private static final String CHILDREN_COUNT = "number:1";
 	private static final String PASSENGER_COUNT = "2";
 
-
 	public static synchronized DataUtility getInstance() {
 		if (constants == null) {
 			constants = new DataUtility();

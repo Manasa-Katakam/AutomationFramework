@@ -1,0 +1,53 @@
+2017-40-19 19:40:18.234 [main] INFO   - *****The name of the testcase Started is :LoginToVoloTea
+2017-40-19 19:40:18.699 [main] INFO   - USER login initiated...
+2017-40-19 19:40:22.043 [main] INFO   - Clicked on Sign-In Link On Home Page
+2017-40-19 19:40:22.044 [main] INFO   - Typing user login: lakmankat@gmail.com
+2017-40-19 19:40:25.422 [main] INFO   - Typing user password: travel2017
+2017-40-19 19:40:25.749 [main] INFO   - Login is in progress...
+2017-40-19 19:40:35.846 [main] INFO   - *****The name of the testcase Passed is :LoginToVoloTea
+2017-40-19 19:40:36.258 [main] INFO   - *****The name of the testcase Started is :SearchFlights
+2017-40-19 19:40:39.733 [main] INFO   - Entering Origin Location as PRG
+2017-40-19 19:40:43.104 [main] INFO   - Entering Origin Location as VCE
+2017-40-19 19:40:43.973 [main] INFO   - Entering Origin Date as: 30
+2017-40-19 19:40:47.121 [main] INFO   - Entering Origin Date as: 14
+2017-41-19 19:41:47.308 [main] INFO   - *****The name of the testcase Failed is :SearchFlights
+2017-50-19 19:50:12.157 [main] INFO   - Taking screenshot Test 4
+2017-50-19 19:50:12.582 [main] INFO   - *****The name of the testcase Started is :LoginToVoloTea
+2017-50-19 19:50:12.993 [main] INFO   - USER login initiated...
+2017-50-19 19:50:13.008 [main] INFO   - *****The name of the testcase Failed is :LoginToVoloTea
+2017-52-19 19:52:12.488 [main] INFO   - Taking screenshot Test 4
+2017-52-19 19:52:12.957 [main] INFO   - *****The name of the testcase Started is :LoginToVoloTea
+2017-52-19 19:52:13.348 [main] INFO   - USER login initiated...
+2017-52-19 19:52:13.379 [main] INFO   - *****The name of the testcase Failed is :LoginToVoloTea
+2017-57-19 19:57:12.047 [main] INFO   - Taking screenshot Test 4
+2017-57-19 19:57:12.464 [main] INFO   - *****The name of the testcase Started is :LoginToVoloTea
+2017-57-19 19:57:12.852 [main] INFO   - USER login initiated...
+2017-57-19 19:57:16.127 [main] INFO   - Clicked on Sign-In Link On Home Page
+2017-57-19 19:57:16.128 [main] INFO   - Typing user login: lakmankat@gmail.com
+2017-57-19 19:57:19.338 [main] INFO   - Typing user password: travel2017
+2017-57-19 19:57:19.557 [main] INFO   - Login is in progress...
+2017-57-19 19:57:19.558 [main] INFO   - Taking screenshot Test 3
+2017-57-19 19:57:32.554 [main] INFO   - Taking screenshot Test 5
+2017-57-19 19:57:32.935 [main] INFO   - *****The name of the testcase Passed is :LoginToVoloTea
+2017-57-19 19:57:33.299 [main] INFO   - *****The name of the testcase Started is :SearchFlights
+2017-57-19 19:57:36.823 [main] INFO   - Entering Origin Location as PRG
+2017-57-19 19:57:40.199 [main] INFO   - Entering Origin Location as VCE
+2017-57-19 19:57:41.273 [main] INFO   - Entering Origin Date as: 30
+2017-57-19 19:57:44.425 [main] INFO   - Entering Origin Date as: 14
+2017-58-19 19:58:44.481 [main] INFO   - *****The name of the testcase Failed is :SearchFlights
+2017-03-19 20:03:20.184 [main] INFO   - Taking screenshot Test 4
+2017-03-19 20:03:20.643 [main] INFO   - *****The name of the testcase Started is :LoginToVoloTea
+2017-03-19 20:03:21.031 [main] INFO   - USER login initiated...
+2017-03-19 20:03:24.204 [main] INFO   - Clicked on Sign-In Link On Home Page
+2017-03-19 20:03:24.205 [main] INFO   - Typing user login: lakmankat@gmail.com
+2017-03-19 20:03:27.426 [main] INFO   - Typing user password: travel2017
+2017-03-19 20:03:27.643 [main] INFO   - Login is in progress...
+2017-03-19 20:03:27.643 [main] INFO   - Taking screenshot Test 3
+2017-03-19 20:03:40.648 [main] INFO   - Taking screenshot Test 5
+2017-03-19 20:03:41.009 [main] INFO   - *****The name of the testcase Passed is :LoginToVoloTea
+2017-03-19 20:03:41.359 [main] INFO   - *****The name of the testcase Started is :SearchFlights
+2017-03-19 20:03:44.840 [main] INFO   - Entering Origin Location as PRG
+2017-03-19 20:03:48.213 [main] INFO   - Entering Origin Location as VCE
+2017-03-19 20:03:49.019 [main] INFO   - Entering Origin Date as: 30
+2017-03-19 20:03:52.149 [main] INFO   - Entering Origin Date as: 14
+2017-04-19 20:04:52.232 [main] INFO   - *****The name of the testcase Failed is :SearchFlights

@@ -3,7 +3,7 @@ package com.atm.modulefive.webdriver.advanced.testdata;
 import com.atm.modulefive.webdriver.advanced.utils.CustomProperties;
 
 public class User {
-	
+
 	private String email;
 	private String password;
 
@@ -11,8 +11,8 @@ public class User {
 		this.email = email;
 		this.password = password;
 	}
-	
-	public User(){
+
+	public User() {
 		this.email = CustomProperties.getPropertiesByName("email");
 		this.password = CustomProperties.getPropertiesByName("password");
 	}

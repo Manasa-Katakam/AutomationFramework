@@ -7,14 +7,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.atm.modulefive.webdriver.advanced.configuration.CustomListener;
 import com.atm.modulefive.webdriver.advanced.testdata.User;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
 public class VoloTeaSignIn {
 
+	CustomListener listener = new CustomListener();
+
 	private WebDriver driver;
 	Logger logger = LogManager.getRootLogger();
-	
+
 	public VoloTeaSignIn(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -46,6 +49,8 @@ public class VoloTeaSignIn {
 		INPUT_PASSWORD.sendKeys(user.getPassword());
 		BUTTON_SIGNIN.click();
 		logger.info("Login is in progress...");
+		listener.takeIntermediateScreenshot("Test 3"); // [IK] Added to check
+														// screenshots
 		return new VoloTeaUserProfile(driver);
 	}
 
