@@ -15,7 +15,7 @@ public class VoloTeaSignIn {
 
 	CustomListener listener = new CustomListener();
 
-	private WebDriver driver;
+	private WebDriver driver; // [IK] Better use singleton
 	Logger logger = LogManager.getRootLogger();
 
 	public VoloTeaSignIn(WebDriver driver) {

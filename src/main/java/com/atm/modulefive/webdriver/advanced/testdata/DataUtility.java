@@ -2,13 +2,13 @@ package com.atm.modulefive.webdriver.advanced.testdata;
 
 public class DataUtility {
 
-	private static DataUtility constants = null;
+	private static DataUtility constants = null; 
 	private static final String START_URL = "http://www.volotea.com/en";
 	private static final String EMAIL = "lakmankat@gmail.com";
 	private static final String PASSWORD = "travel2017";
 	private static final String PAGETITLE = "VOLOTEA - Cheap flights, offers and plane tickets to Europe";
-	private static final String selectedStartDate = "30";
-	private static final String selectedReturnDate = "14";
+	private static final String selectedStartDate = "30"; // [IK] Make capital letters
+	private static final String selectedReturnDate = "14"; // [IK] Make capital letters
 	private static final String CHILDREN_COUNT = "number:1";
 	private static final String PASSENGER_COUNT = "2";
 

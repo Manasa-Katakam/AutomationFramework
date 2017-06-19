@@ -19,25 +19,25 @@ import org.testng.ITestResult;
 
 public class CustomListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
 
-	WebDriver driver = null;
+	WebDriver driver = null; // [IK] I suggest not to do like this.
 	String filePath = "./evidence/screenshots_new/"; // [IK] Updated the path.
 	Logger logger = LogManager.getRootLogger();
 
-	public void onTestStart(ITestResult result) {
+	public void onTestStart(ITestResult result) { // [IK] Make more optimal usage of strings.
 		logger.info("*****The name of the testcase Started is :" + result.getName());
 		String methodName = result.getName().toString().trim();
 		String Name = "Startof" + methodName;
 		takeScreenshot(Name);
 	}
 
-	public void onTestSuccess(ITestResult result) {
+	public void onTestSuccess(ITestResult result) { // [IK] Make more optimal usage of strings.
 		logger.info("*****The name of the testcase Passed is :" + result.getName());
 		String methodName = result.getName().toString().trim();
 		String Name = "OnSuccessof" + methodName;
 		takeScreenshot(Name);
 	}
 
-	public void onTestFailure(ITestResult result) {
+	public void onTestFailure(ITestResult result) { // [IK] Make more optimal usage of strings.
 		logger.info("*****The name of the testcase Failed is :" + result.getName());
 		String methodName = result.getName().toString().trim();
 		String Name = "OnFailureof" + methodName;

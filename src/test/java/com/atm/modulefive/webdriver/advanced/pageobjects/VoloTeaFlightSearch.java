@@ -14,9 +14,9 @@ import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
 public class VoloTeaFlightSearch {
 
-	CustomListener listener = new CustomListener();
+	CustomListener listener = new CustomListener(); // [IK] Added
 
-	private WebDriver driver;
+	private WebDriver driver; // [IK] Better use singleton
 	Logger logger = LogManager.getRootLogger();
 
 	public VoloTeaFlightSearch(WebDriver driver) {

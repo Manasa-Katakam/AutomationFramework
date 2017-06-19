@@ -9,7 +9,7 @@ import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
 public class VoloTeaUserProfile {
 
-	private WebDriver driver;
+	private WebDriver driver; // [IK] Better use singleton
 
 	public VoloTeaUserProfile(WebDriver driver) {
 		this.driver = driver;
