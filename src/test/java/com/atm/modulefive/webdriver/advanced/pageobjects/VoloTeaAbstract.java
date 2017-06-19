@@ -6,18 +6,19 @@ import org.openqa.selenium.support.PageFactory;
 
 public class VoloTeaAbstract {
 
-	protected WebDriver driver;
+    protected WebDriver driver; // [IK] Use singleton here. The code is commented below.
+//    WebDriver driver = DefaultDriver.initializeDriver();
 
-		public VoloTeaAbstract(WebDriver driver) {
-			this.driver = driver;
-			PageFactory.initElements(driver, this);
-		}
+    public VoloTeaAbstract(WebDriver driver) {
+	this.driver = driver;
+	PageFactory.initElements(driver, this);
+    }
 
-	public boolean isElementPresent(By loacator) {
-		return driver.findElements(loacator).size() > 0;
-	}
-	
-	public String getElementText(By locator){
-		return driver.findElement(locator).getText();
-	}
+    public boolean isElementPresent(By loacator) {
+	return driver.findElements(loacator).size() > 0;
+    }
+
+    public String getElementText(By locator) {
+	return driver.findElement(locator).getText();
+    }
 }

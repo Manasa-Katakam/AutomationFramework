@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-DefaultSuite">
-              <span class="suite-name border-passed">DefaultSuite</span>
+              <span class="suite-name border-failed">DefaultSuite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-DefaultSuite">
-                    <span>D:\Automation Mentoring\Final_Framework\myhometask_webdriver_basics\resources\Runner.xml</span>
+                    <span>C:\Git_Repositories\myhometask_webdriver_basics\resources\Runner.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,35 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,  1 skipped,  1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-DefaultSuite" class="hide-methods failed suite-DefaultSuite"> (hide)</a> <!-- hide-methods failed suite-DefaultSuite -->
+                      <a href="#" panel-name="suite-DefaultSuite" class="show-methods failed suite-DefaultSuite"> (show)</a> <!-- show-methods failed suite-DefaultSuite -->
+                    </span>
+                    <div class="method-list-content failed suite-DefaultSuite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DefaultSuite" title="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton" hash-for-method="SearchFlights">SearchFlights</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-DefaultSuite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-DefaultSuite" class="hide-methods skipped suite-DefaultSuite"> (hide)</a> <!-- hide-methods skipped suite-DefaultSuite -->
+                      <a href="#" panel-name="suite-DefaultSuite" class="show-methods skipped suite-DefaultSuite"> (show)</a> <!-- show-methods skipped suite-DefaultSuite -->
+                    </span>
+                    <div class="method-list-content skipped suite-DefaultSuite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DefaultSuite" title="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton" hash-for-method="FlightInformation">FlightInformation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-DefaultSuite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,17 +130,7 @@
                     <div class="method-list-content passed suite-DefaultSuite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DefaultSuite" title="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton" hash-for-method="FlightInformation">FlightInformation</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-DefaultSuite" title="com.atm.modulefive.webdriver.advanced.tests.VoloTeaLoginWithUsers" hash-for-method="LoginToVoloTea">LoginToVoloTea</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DefaultSuite" title="com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton" hash-for-method="SearchFlights">SearchFlights</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-DefaultSuite -->
@@ -127,9 +145,33 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-DefaultSuite" class="panel DefaultSuite">
-          <div class="suite-DefaultSuite-class-passed">
+          <div class="suite-DefaultSuite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
+              <span class="class-name">com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="SearchFlights">
+                  </a> <!-- SearchFlights -->
+                  <span class="method-name">SearchFlights</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy7.click(Unknown Source)
+	at com.atm.modulefive.webdriver.advanced.pageobjects.VoloTeaFlightSearch.addOriginReturnDetails(VoloTeaFlightSearch.java:59)
+	at com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton.SearchFlights(VoloTeaTestwithSingleton.java:36)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Search Flights with given details)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DefaultSuite-class-failed -->
+          <div class="suite-DefaultSuite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
               <span class="class-name">com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -138,21 +180,15 @@
                   <a name="FlightInformation">
                   </a> <!-- FlightInformation -->
                   <span class="method-name">FlightInformation</span>
+                  <div class="stack-trace">java.lang.Throwable: Method VoloTeaTestwithSingleton.FlightInformation()[pri:0, instance:com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton@1e88b3c] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
                   <em>
 (Validate the Search query made previously)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="SearchFlights">
-                  </a> <!-- SearchFlights -->
-                  <span class="method-name">SearchFlights</span>
-                  <em>
-(Search Flights with given details)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-DefaultSuite-class-passed -->
+          </div> <!-- suite-DefaultSuite-class-skipped -->
           <div class="suite-DefaultSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -173,7 +209,7 @@
         </div> <!-- panel DefaultSuite -->
         <div panel-name="test-xml-DefaultSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\Automation Mentoring\Final_Framework\myhometask_webdriver_basics\resources\Runner.xml</span>
+            <span class="header-content">C:\Git_Repositories\myhometask_webdriver_basics\resources\Runner.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -230,20 +266,20 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'SearchFlights')
 data.setCell(0, 2, 'com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton')
-data.setCell(0, 3, 17205);
+data.setCell(0, 3, 45723);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'LoginToVoloTea')
 data.setCell(1, 2, 'com.atm.modulefive.webdriver.advanced.tests.VoloTeaLoginWithUsers')
-data.setCell(1, 3, 16420);
+data.setCell(1, 3, 16839);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'FlightInformation')
 data.setCell(2, 2, 'com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton')
-data.setCell(2, 3, 92);
+data.setCell(2, 3, 0);
 window.suiteTableData['DefaultSuite']= { tableData: data, tableDiv: 'times-div-DefaultSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 33 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-DefaultSuite">
               </div> <!-- times-div-DefaultSuite -->
             </div> <!-- times-div -->
@@ -276,26 +312,24 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">LoginToVoloTea</span>
-                <span class="method-start">11724 ms</span>
+                <span class="method-start">8338 ms</span>
               </div> <!-- test-method -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.atm.modulefive.webdriver.advanced.tests.VoloTeaTestwithSingleton</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">startBrowser</span>
-                <span class="method-start">28146 ms</span>
+                <span class="method-start">25180 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">SearchFlights</span>
-                <span class="method-start">36824 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">FlightInformation</span>
-                <span class="method-start">54030 ms</span>
+                <span class="method-start">32487 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">stopBrowser</span>
-                <span class="method-start">54123 ms</span>
+                <span class="method-start">78229 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

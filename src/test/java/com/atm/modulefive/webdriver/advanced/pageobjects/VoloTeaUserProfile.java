@@ -6,22 +6,18 @@ import org.openqa.selenium.support.FindBy;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
+public class VoloTeaUserProfile extends VoloTeaAbstract {
 
-public class VoloTeaUserProfile extends VoloTeaAbstract{
+    public VoloTeaUserProfile(WebDriver driver) {
+	super(driver);
+    }
 
-	public VoloTeaUserProfile(WebDriver driver) {
-		super(driver);
-	}
+    @FindBy(id = "userNavbarOptions")
+    private WebElement LINK_YOUR_PROFILE;
 
+    public boolean loginIsCorrect() {
+	ActionUtility.waitForPageLoaded(driver);
+	return LINK_YOUR_PROFILE.isDisplayed();
 
-	@FindBy(id = "userNavbarOptions")
-	private WebElement LINK_YOUR_PROFILE;
-
-
-	public boolean loginIsCorrect() {
-		ActionUtility.waitForPageLoaded(driver);
-		return LINK_YOUR_PROFILE.isDisplayed();
-
-	}
+    }
 }
-

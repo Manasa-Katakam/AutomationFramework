@@ -6,41 +6,39 @@ import org.openqa.selenium.support.FindBy;
 
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
-public class VoloTeaFlightSummary extends VoloTeaAbstract{
-	
-	public VoloTeaFlightSummary(WebDriver driver) {
-		super(driver);
-	}
+public class VoloTeaFlightSummary extends VoloTeaAbstract {
 
-	@FindBy(xpath = "//div[@class='resume-wrapper']//p")
-	private WebElement LABEL_PASSENGER_COUNT;
-	
-	@FindBy(xpath = "//td[contains(text(),'Outbound')]/..//strong/..")
-	private WebElement LABEL_ORIGIN;
-	
-	@FindBy(xpath = "//td[contains(text(),'Return')]/..//strong/..")
-	private WebElement LABEL_RETURN;
+    public VoloTeaFlightSummary(WebDriver driver) {
+	super(driver);
+    }
 
+    @FindBy(xpath = "//div[@class='resume-wrapper']//p")
+    private WebElement LABEL_PASSENGER_COUNT;
 
-	public String getPassengerCount() {
-		String passengerCount = LABEL_PASSENGER_COUNT.getText();
-		return passengerCount;		
-	}
-	
-	public boolean isFlightDisplayed(){
-		boolean flight = LABEL_ORIGIN.isDisplayed();
-		return flight;
-	}
+    @FindBy(xpath = "//td[contains(text(),'Outbound')]/..//strong/..")
+    private WebElement LABEL_ORIGIN;
 
+    @FindBy(xpath = "//td[contains(text(),'Return')]/..//strong/..")
+    private WebElement LABEL_RETURN;
 
-	public String getOriginFlightDetails() {
-		String originFlight = LABEL_ORIGIN.getText();
-		return originFlight;		
-	}
-	
-	public String getReturnFlightDetails(){
-		String returnFlight = LABEL_RETURN.getText();
-		return returnFlight;
-	}
+    public String getPassengerCount() {
+	String passengerCount = LABEL_PASSENGER_COUNT.getText();
+	return passengerCount;
+    }
+
+    public boolean isFlightDisplayed() {
+	boolean flight = LABEL_ORIGIN.isDisplayed();
+	return flight;
+    }
+
+    public String getOriginFlightDetails() {
+	String originFlight = LABEL_ORIGIN.getText();
+	return originFlight;
+    }
+
+    public String getReturnFlightDetails() {
+	String returnFlight = LABEL_RETURN.getText();
+	return returnFlight;
+    }
 
 }

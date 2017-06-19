@@ -7,68 +7,73 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/*
+ * [IK] Please, remove the whole class, if it's not needed.
+ * 
+ */
+
 public class Decorator implements WebDriver {
-	
-	protected WebDriver driver;
 
-	public Decorator(WebDriver driver) {
-		this.driver = driver;
-	}
+    protected WebDriver driver;
 
-	public void get(String url) {		
-		System.out.println("Browser will navigate to the URL: " + url);
-        driver.get(url);
-	}
+    public Decorator(WebDriver driver) {
+	this.driver = driver;
+    }
 
-	public String getCurrentUrl() {		
-		return driver.getCurrentUrl();
-	}
+    public void get(String url) {
+	System.out.println("Browser will navigate to the URL: " + url);
+	driver.get(url);
+    }
 
-	public String getTitle() {		
-		return driver.getTitle();
-	}
+    public String getCurrentUrl() {
+	return driver.getCurrentUrl();
+    }
 
-	public List<WebElement> findElements(By by) {
-		return driver.findElements(by);
-	}
+    public String getTitle() {
+	return driver.getTitle();
+    }
 
-	public WebElement findElement(By by) {
-		 return driver.findElement(by);
-	}
+    public List<WebElement> findElements(By by) {
+	return driver.findElements(by);
+    }
 
-	public String getPageSource() {
-		 return driver.getPageSource();
-	}
+    public WebElement findElement(By by) {
+	return driver.findElement(by);
+    }
 
-	public void close() {
-		driver.close();
-		
-	}
+    public String getPageSource() {
+	return driver.getPageSource();
+    }
 
-	public void quit() {
-		System.out.println("Closing the current driver instance");
-		driver.quit();
-		
-	}
+    public void close() {
+	driver.close();
 
-	public Set<String> getWindowHandles() {
-		return driver.getWindowHandles();
-	}
+    }
 
-	public String getWindowHandle() {
-		 return driver.getWindowHandle();
-	}
+    public void quit() {
+	System.out.println("Closing the current driver instance");
+	driver.quit();
 
-	public TargetLocator switchTo() {
-		return driver.switchTo();
-	}
+    }
 
-	public Navigation navigate() {
-		 return driver.navigate();
-	}
+    public Set<String> getWindowHandles() {
+	return driver.getWindowHandles();
+    }
 
-	public Options manage() {
-		return driver.manage();
-	}
+    public String getWindowHandle() {
+	return driver.getWindowHandle();
+    }
+
+    public TargetLocator switchTo() {
+	return driver.switchTo();
+    }
+
+    public Navigation navigate() {
+	return driver.navigate();
+    }
+
+    public Options manage() {
+	return driver.manage();
+    }
 
 }
