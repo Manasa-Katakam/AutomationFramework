@@ -19,79 +19,89 @@ import org.testng.ITestResult;
 
 public class CustomListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
 
-	WebDriver driver = null; // [IK] I suggest not to do like this.
-	String filePath = "./evidence/screenshots_new/"; // [IK] Updated the path.
-	Logger logger = LogManager.getRootLogger();
+    WebDriver driver = null; // [IK] I suggest not to do like this.
+    String filePath = "./evidence/screenshots/";  
+    Logger logger = LogManager.getRootLogger();
 
-	public void onTestStart(ITestResult result) { // [IK] Make more optimal usage of strings. // [IK] REVIEW!!!
-		logger.info("*****The name of the testcase Started is :" + result.getName());
-		String methodName = result.getName().toString().trim();
-		String Name = "Startof" + methodName;
-		takeScreenshot(Name);
-	}
-
-	public void onTestSuccess(ITestResult result) { // [IK] Make more optimal usage of strings.
-		logger.info("*****The name of the testcase Passed is :" + result.getName());
-		String methodName = result.getName().toString().trim();
-		String Name = "OnSuccessof" + methodName;
-		takeScreenshot(Name);
-	}
-
-	public void onTestFailure(ITestResult result) { // [IK] Make more optimal usage of strings.
-		logger.info("*****The name of the testcase Failed is :" + result.getName());
-		String methodName = result.getName().toString().trim();
-		String Name = "OnFailureof" + methodName;
-		takeScreenshot(Name);
-	}
-
+    public void onTestStart(ITestResult result) { // [IK] Make more optimal usage of strings. The example is below.
+	
 	/*
-	 * [IK] Added to check screenshots.
-	 * 
+	 *  result.getName() repeats twice. Make it use once, as shown below.
+	 *  
 	 */
-	public void takeIntermediateScreenshot(String name) {
-		logger.info("Taking screenshot " + name);
-		takeScreenshot(name);
+
+	String resultOutput = result.getName();
+
+	logger.info("*****The name of the testcase Started is :" + resultOutput);
+	String methodName = resultOutput.toString().trim();
+	String Name = "Startof" + methodName;
+	takeScreenshot(Name);
+    }
+
+    public void onTestSuccess(ITestResult result) { // [IK] Make more optimal
+						    // usage of strings.
+	logger.info("*****The name of the testcase Passed is :" + result.getName());
+	String methodName = result.getName().toString().trim();
+	String Name = "OnSuccessof" + methodName;
+	takeScreenshot(Name);
+    }
+
+    public void onTestFailure(ITestResult result) { // [IK] Make more optimal
+						    // usage of strings.
+	logger.info("*****The name of the testcase Failed is :" + result.getName());
+	String methodName = result.getName().toString().trim();
+	String Name = "OnFailureof" + methodName;
+	takeScreenshot(Name);
+    }
+
+    /*
+     * [IK] Added to check screenshots.
+     * 
+     */
+    public void takeIntermediateScreenshot(String name) {
+	logger.info("Taking screenshot " + name);
+	takeScreenshot(name);
+    }
+
+    public void onTestSkipped(ITestResult result) {
+
+    }
+
+    public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+    }
+
+    public void onStart(ITestContext context) {
+
+    }
+
+    public void onFinish(ITestContext context) {
+
+    }
+
+    public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
+
+    }
+
+    public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+
+    }
+
+    public void onStart(ISuite suite) {
+
+    }
+
+    public void onFinish(ISuite suite) {
+
+    }
+
+    private void takeScreenshot(String Name) {
+	driver = DefaultDriver.initializeDriver();
+	File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	try {
+	    FileUtils.copyFile(scrFile, new File(filePath + Name + ".png"));
+	} catch (IOException e) {
+	    logger.trace("Error in plcaing the file due to, " + e.getMessage());
 	}
-
-	public void onTestSkipped(ITestResult result) {
-
-	}
-
-	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-	}
-
-	public void onStart(ITestContext context) {
-
-	}
-
-	public void onFinish(ITestContext context) {
-
-	}
-
-	public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
-
-	}
-
-	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-
-	}
-
-	public void onStart(ISuite suite) {
-
-	}
-
-	public void onFinish(ISuite suite) {
-
-	}
-
-	private void takeScreenshot(String Name) {
-		driver = DefaultDriver.initializeDriver();
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(scrFile, new File(filePath + Name + ".png"));
-		} catch (IOException e) {
-			logger.trace("Error in plcaing the file due to, " + e.getMessage());
-		}
-	}
+    }
 
 }
