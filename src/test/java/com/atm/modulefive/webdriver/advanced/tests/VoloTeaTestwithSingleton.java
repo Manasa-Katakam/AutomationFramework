@@ -43,7 +43,7 @@ public class VoloTeaTestwithSingleton {
 
     @Test(dependsOnMethods = "SearchFlights", description = "Validate the Search query made previously")
     public void FlightInformation() throws InterruptedException {
-	WebDriver decoratedDriver = new Decorator(driver); // Decorator
+	WebDriver decoratedDriver = new Decorator(driver); // Decorator // [IK] let's use singleton for the whole project.
 							   // Implementation
 	System.out.println("*****Outbound and Return Flight Details*****");
 	System.out.println(new VoloTeaFlightSummary(decoratedDriver).getOriginFlightDetails());

@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.atm.modulefive.webdriver.advanced.configuration.DefaultDriver;
+
 public class VoloTeaAbstract {
 
     protected WebDriver driver; // [IK] Use singleton here. The code is commented below.
