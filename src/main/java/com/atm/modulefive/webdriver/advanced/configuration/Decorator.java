@@ -7,6 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/*
+ * [IK] Let's use Singleton, and remove everything which is not needed for it.
+ * 
+ */
 public class Decorator implements WebDriver {
 
 	protected WebDriver driver;

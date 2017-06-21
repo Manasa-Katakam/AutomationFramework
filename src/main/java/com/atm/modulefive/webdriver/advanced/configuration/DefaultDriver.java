@@ -4,6 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+/*
+ * [IK] Let's use Singleton, and remove everything which is not needed for it.
+ * 
+ */
 public class DefaultDriver {
 
 	private static WebDriver driver;
