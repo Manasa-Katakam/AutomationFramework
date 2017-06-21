@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
-
 public class VoloTeaFlightSummary extends VoloTeaAbstract {
 
     public VoloTeaFlightSummary(WebDriver driver) {

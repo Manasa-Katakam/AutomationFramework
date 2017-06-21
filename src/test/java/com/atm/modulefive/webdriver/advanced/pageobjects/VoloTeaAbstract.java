@@ -8,8 +8,8 @@ import com.atm.modulefive.webdriver.advanced.configuration.DefaultDriver;
 
 public class VoloTeaAbstract {
 
-    protected WebDriver driver; // [IK] Use singleton here. The code is commented below.
-//    WebDriver driver = DefaultDriver.initializeDriver();
+ // [IK] Use singleton here. The code is commented below.
+    WebDriver driver = DefaultDriver.initializeDriver();
 
     public VoloTeaAbstract(WebDriver driver) {
 	this.driver = driver;

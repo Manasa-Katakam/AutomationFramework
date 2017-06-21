@@ -3,30 +3,25 @@ package com.atm.modulefive.webdriver.advanced.tests;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.atm.modulefive.webdriver.advanced.configuration.DefaultDriver;
 import com.atm.modulefive.webdriver.advanced.pageobjects.VoloTeaSignIn;
 import com.atm.modulefive.webdriver.advanced.testdata.DataUtility;
 import com.atm.modulefive.webdriver.advanced.testdata.User;
 
 public class VoloTeaLoginWithUsers {
 
-    protected WebDriver driver; // [IK] Use singleton here. The code is commented below.
-//  WebDriver driver = DefaultDriver.initializeDriver();
+	WebDriver driver = DefaultDriver.initializeDriver();
 
     /*
      * [IK] Move to singleton the settings for WebDriver. 
-     * 
+     * [MK] Moved the browser's driver intialization to Singleton class
      */
     @BeforeClass(description = "Start Browser, maximize and add implicit sync wait time")
     public void startBrowser() {
-	System.setProperty("webdriver.chrome.driver", "./libs/chromedriver.exe"); 
-	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-	driver = new ChromeDriver(capabilities);
 	driver.get(DataUtility.getStartUrl());
 	driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 	driver.manage().window().maximize();
