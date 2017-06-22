@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class CustomProperties {
 
-	static String propertiesFileName = "./src/test/resources/config.Properties"; // [IK] Make capital letters
+	static String PROPERTIESFILENAME = "./src/test/resources/config.Properties"; // [IK] Make capital letters [MK] Done
 
 	public static String getPropertiesByName(String propertyName) {
 

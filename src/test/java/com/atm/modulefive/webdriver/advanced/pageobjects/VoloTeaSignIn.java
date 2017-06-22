@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.atm.modulefive.webdriver.advanced.configuration.CustomListener;
+import com.atm.modulefive.webdriver.advanced.configuration.DefaultDriver;
 import com.atm.modulefive.webdriver.advanced.testdata.User;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
@@ -15,7 +16,8 @@ public class VoloTeaSignIn {
 
 	CustomListener listener = new CustomListener();
 
-	private WebDriver driver; // [IK] Better use singleton
+	// [IK] Better use singleton [MK] Done
+	WebDriver driver = DefaultDriver.initializeDriver();
 	Logger logger = LogManager.getRootLogger();
 
 	public VoloTeaSignIn(WebDriver driver) {

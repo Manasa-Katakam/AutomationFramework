@@ -7,8 +7,8 @@ public class DataUtility {
 	private static final String EMAIL = "lakmankat@gmail.com";
 	private static final String PASSWORD = "travel2017";
 	private static final String PAGETITLE = "VOLOTEA - Cheap flights, offers and plane tickets to Europe";
-	private static final String selectedStartDate = "30"; // [IK] Make capital letters
-	private static final String selectedReturnDate = "14"; // [IK] Make capital letters
+	private static final String SLECTEDSTARTDATE = "30"; // [IK] Make capital letters [MK] Done
+	private static final String SELECTEDRETURNDATE = "14"; // [IK] Make capital letters [MK] Done
 	private static final String CHILDREN_COUNT = "number:1";
 	private static final String PASSENGER_COUNT = "2";
 
@@ -36,11 +36,11 @@ public class DataUtility {
 	}
 
 	public static String getSelectedstartdate() {
-		return selectedStartDate;
+		return SLECTEDSTARTDATE;
 	}
 
 	public static String getSelectedreturndate() {
-		return selectedReturnDate;
+		return SELECTEDRETURNDATE;
 	}
 
 	public static String getChildrenCount() {

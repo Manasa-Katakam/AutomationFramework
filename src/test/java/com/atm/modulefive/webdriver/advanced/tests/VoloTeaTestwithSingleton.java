@@ -12,7 +12,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.atm.modulefive.webdriver.advanced.configuration.CustomListener;
-import com.atm.modulefive.webdriver.advanced.configuration.Decorator;
 import com.atm.modulefive.webdriver.advanced.configuration.DefaultDriver;
 import com.atm.modulefive.webdriver.advanced.pageobjects.VoloTeaFlightSearch;
 import com.atm.modulefive.webdriver.advanced.pageobjects.VoloTeaFlightSummary;
@@ -23,14 +22,12 @@ import com.atm.modulefive.webdriver.advanced.testdata.User;
 @Listeners(CustomListener.class)
 public class VoloTeaTestwithSingleton {
 	private static final String PASSENGER_COUNT = "2";
-	private WebDriver driver;
+	WebDriver driver = DefaultDriver.initializeDriver();
 	Logger logger = LogManager.getRootLogger();
-
 	CustomListener listener = new CustomListener();
 
 	@BeforeClass(description = "Intialize webdriver and launch application")
 	public void startBrowser() {
-		driver = DefaultDriver.initializeDriver(); // Singleton Implementation
 		driver.get(DataUtility.getStartUrl());
 		driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 		driver.manage().window().maximize();
@@ -60,16 +57,15 @@ public class VoloTeaTestwithSingleton {
 
 	@Test(dependsOnMethods = "SearchFlights", description = "Validate the Search query made previously")
 	public void FlightInformation() throws InterruptedException {
-		WebDriver decoratedDriver = new Decorator(driver); // Decorator // [IK] Let's use singleton everywhere.
-															// Implementation
+		// Decorator // [IK] Let's use singleton everywhere //[MK] Removed decorator and added singleton
 		System.out.println("*****Outbound and Return Flight Details*****");
-		System.out.println(new VoloTeaFlightSummary(decoratedDriver).getOriginFlightDetails());
-		System.out.println(new VoloTeaFlightSummary(decoratedDriver).getReturnFlightDetails());
+		System.out.println(new VoloTeaFlightSummary(driver).getOriginFlightDetails());
+		System.out.println(new VoloTeaFlightSummary(driver).getReturnFlightDetails());
 		System.out.println(
 				"Flight Search with given details have been made and the list of available flights are visible");
 		listener.takeIntermediateScreenshot("Test 7"); // [IK] Added to check
 														// screenshots
-		Assert.assertTrue(new VoloTeaFlightSummary(decoratedDriver).isFlightDisplayed(),
+		Assert.assertTrue(new VoloTeaFlightSummary(driver).isFlightDisplayed(),
 				"Flight Details are not displayed for the Search made!");
 	}
 

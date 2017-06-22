@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.atm.modulefive.webdriver.advanced.configuration.CustomListener;
+import com.atm.modulefive.webdriver.advanced.configuration.DefaultDriver;
 import com.atm.modulefive.webdriver.advanced.testdata.DataUtility;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
@@ -16,7 +17,8 @@ public class VoloTeaFlightSearch {
 
 	CustomListener listener = new CustomListener(); // [IK] Added
 
-	private WebDriver driver; // [IK] Better use singleton
+	// [IK] Better use singleton [MK] Done
+	WebDriver driver = DefaultDriver.initializeDriver();
 	Logger logger = LogManager.getRootLogger();
 
 	public VoloTeaFlightSearch(WebDriver driver) {
@@ -42,7 +44,7 @@ public class VoloTeaFlightSearch {
 	@FindBy(xpath = "//div[contains(@class,'group-first')]//table//td[@data-handler='selectDay']/a[text()=30]")
 	private WebElement CAL_START_DATES;
 
-	@FindBy(xpath = "//div[contains(@class,'group-last')]//table//td[@data-handler='selectDay']/a[text()=14]")
+	@FindBy(xpath = "//div[contains(@class,'group-first')]//table//td[@data-handler='selectDay']/a[text()=14]")
 	private WebElement CAL_RETURN_DATES;
 
 	@FindBy(xpath = "//select[@name='children']")

@@ -19,19 +19,19 @@ import org.testng.ITestResult;
 
 public class CustomListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
 
-    WebDriver driver = null; // [IK] I suggest not to do like this.
+    WebDriver driver = DefaultDriver.initializeDriver(); // [IK] I suggest not to do like this //[MK] Removed the driver setting from null to singleton
     String filePath = "./evidence/screenshots/";  
     Logger logger = LogManager.getRootLogger();
 
-    public void onTestStart(ITestResult result) { // [IK] Make more optimal usage of strings. The example is below.
-	
+    public void onTestStart(ITestResult result) { 
+    	
+    // [IK] Make more optimal usage of strings. The example is below.
+	// [MK] Implemnted the same with the example given by you
 	/*
 	 *  result.getName() repeats twice. Make it use once, as shown below.
 	 *  
 	 */
-
 	String resultOutput = result.getName();
-
 	logger.info("*****The name of the testcase Started is :" + resultOutput);
 	String methodName = resultOutput.toString().trim();
 	String Name = "Startof" + methodName;
@@ -39,17 +39,19 @@ public class CustomListener implements ITestListener, ISuiteListener, IInvokedMe
     }
 
     public void onTestSuccess(ITestResult result) { // [IK] Make more optimal
-						    // usage of strings.
-	logger.info("*****The name of the testcase Passed is :" + result.getName());
-	String methodName = result.getName().toString().trim();
+						    // usage of strings. [MK] Done
+    String resultOutput = result.getName();
+	logger.info("*****The name of the testcase Passed is :" + resultOutput);
+	String methodName = resultOutput.toString().trim();
 	String Name = "OnSuccessof" + methodName;
 	takeScreenshot(Name);
     }
 
     public void onTestFailure(ITestResult result) { // [IK] Make more optimal
-						    // usage of strings.
-	logger.info("*****The name of the testcase Failed is :" + result.getName());
-	String methodName = result.getName().toString().trim();
+						    // usage of strings. [MK] Done
+    String resultOutput = result.getName();
+	logger.info("*****The name of the testcase Failed is :" + resultOutput);
+	String methodName = resultOutput.toString().trim();
 	String Name = "OnFailureof" + methodName;
 	takeScreenshot(Name);
     }
@@ -59,7 +61,7 @@ public class CustomListener implements ITestListener, ISuiteListener, IInvokedMe
      * 
      */
     public void takeIntermediateScreenshot(String name) {
-	logger.info("Taking screenshot " + name);
+	logger.info("Taking screenshot of: " + name);
 	takeScreenshot(name);
     }
 

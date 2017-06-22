@@ -5,12 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.atm.modulefive.webdriver.advanced.configuration.DefaultDriver;
 import com.atm.modulefive.webdriver.advanced.utils.ActionUtility;
 
 public class VoloTeaUserProfile {
 
-	private WebDriver driver; // [IK] Better use singleton
-
+	// [IK] Better use singleton [MK] Done
+	WebDriver driver = DefaultDriver.initializeDriver();
+	
 	public VoloTeaUserProfile(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

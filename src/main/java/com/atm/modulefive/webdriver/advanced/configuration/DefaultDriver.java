@@ -6,7 +6,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 /*
  * [IK] Let's use Singleton, and remove everything which is not needed for it.
- * 
+ * [MK] Removed the other Driver intializers and kept the singleton usage
  */
 public class DefaultDriver {
 
