@@ -5,11 +5,16 @@
     <classes>
       <class name="com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo">
         <methods>
+          <include name="beforeMethod"/>
           <include name="startBrowser"/>
           <include name="stopBrowser"/>
+          <include name="afterMethod"/>
           <include name="VoloTeaSignIn"/>
           <include name="FlightInformation"/>
           <include name="SearchFlights"/>
+          <include name="FlightReturnInformation"/>
+          <include name="beforeSuite"/>
+          <include name="FlightOriginInformation"/>
         </methods>
       </class> <!-- com.atm.modulefive.webdriver.basics.runner.VoloTeaDemo -->
     </classes>

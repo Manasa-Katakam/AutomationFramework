@@ -1,5 +1,7 @@
 package com.atm.modulefive.webdriver.basics.runner;
 
+import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,30 +10,60 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
+import com.Reporting.ExtentManager;
 import com.atm.modulefive.webdriver.basics.testdata.Constants;
 import com.atm.modulefive.webdriver.basics.utils.ActionUtility;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class VoloTeaDemo {
+	
+	private static ExtentReports extent;
+    private static ThreadLocal parentTest = new ThreadLocal();
+    private static ThreadLocal test = new ThreadLocal();
 
     private static final String LINK_YOUR_PROFILE = "userNavbarOptions"; // name
     private static final String LABEL_PASSENGER_COUNT = "//div[@class='resume-wrapper']//p";
+    private static final String LABEL_PASSENGER_COUNT2 = "//div[@class='-wrapper']//p";
     private static final String LABEL_ORIGIN = "//td[contains(text(),'Outbound')]/..//strong/..";
     private static final String LABEL_RETURN = "//td[contains(text(),'Return')]/..//strong/..";
     private static final String PASSENGER_COUNT = "2";
     private static WebDriver driver;
+    
+    @BeforeSuite
+	public void beforeSuite() {
+		extent = ExtentManager.createInstance(System.getProperty("user.dir") +"/test-output/ExtentReport/ExtentReport.html");
+		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") +"/test-output/ExtentReport/ExtentReport.html");
+		extent.attachReporter(htmlReporter);
+	}
 
     @BeforeClass(description = "Start Browser, maximize and add implicit sync wait time")
-    public void startBrowser() {
+    public synchronized void startBrowser() {
+    ExtentTest parent = extent.createTest(getClass().getName());
+    parentTest.set(parent);
 	System.setProperty("webdriver.chrome.driver", "./libs/chromedriver.exe");
 	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 	driver = new ChromeDriver(capabilities);
 	driver.get(Constants.getStartUrl());
 	driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
 	driver.manage().window().maximize();
+    }
+    
+    @BeforeMethod
+    public synchronized void beforeMethod(Method method) {
+        ExtentTest child = ((ExtentTest) parentTest.get()).createNode(method.getName());
+        test.set(child);
     }
 
     @Test(description = "SignIn to VoloTea Application")
@@ -55,7 +87,7 @@ public class VoloTeaDemo {
 	Constants.getInstance().setStartdate(VoloTeaImplementation.addRandomStartDate(driver));
 	Constants.getInstance().setReturndate(VoloTeaImplementation.addRandomReturnDate(driver));
 	VoloTeaImplementation.doFlightSearch(driver);
-	Assert.assertTrue(ActionUtility.isElementPresent(driver, By.xpath(LABEL_PASSENGER_COUNT)),
+	Assert.assertTrue(ActionUtility.isElementPresent(driver, By.xpath(LABEL_PASSENGER_COUNT2)),
 		"The Passenger count hasn't been updated with the Sarch Criteria made");
 
     }
@@ -85,6 +117,19 @@ public class VoloTeaDemo {
 		ActionUtility.getElementValue(driver, By.xpath(LABEL_PASSENGER_COUNT)).contains(PASSENGER_COUNT),
 		"The Total number of Passengers doesn't match with the expected, i.e " + PASSENGER_COUNT);
 
+    }
+    
+    @AfterMethod
+    public synchronized void afterMethod(ITestResult result) throws Exception {
+    	String screenshot_path=VoloTeaImplementation.getScreenhot(driver, result.getName());
+        if (result.getStatus() == ITestResult.FAILURE)
+        	((ExtentTest) test.get()).fail(MarkupHelper.createLabel(result.getThrowable()+"Test Case"+ result.getName() +"Status is Failed", ExtentColor.RED)).addScreenCaptureFromPath(screenshot_path);
+        else if (result.getStatus() == ITestResult.SKIP)
+            ((ExtentTest) test.get()).skip(MarkupHelper.createLabel(result.getThrowable()+"Test Case"+ result.getName() +"Status is Skipped", ExtentColor.YELLOW));
+        else
+            ((ExtentTest) test.get()).pass(MarkupHelper.createLabel("Test Case"+ result.getName() +"Status is passed", ExtentColor.GREEN));
+
+        extent.flush();
     }
 
     @AfterClass(description = "Stop Browser")
